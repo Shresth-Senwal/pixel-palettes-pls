@@ -1,26 +1,229 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --font-press-start: 'Press Start 2P', monospace;
+  --font-vt323: 'VT323', monospace;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, #ff006e, #8338ec);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(45deg, #ff1744, #9c27b0);
+}
+
+/* Modern glitch effect - more subtle */
+.glitch {
+  position: relative;
+  color: #fff;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.8;
+}
+
+.glitch::before {
+  animation: glitch-anim 2s infinite linear alternate-reverse;
+  color: #ff006e;
+  z-index: -1;
+  clip: rect(0, 900px, 0, 0);
+}
+
+.glitch::after {
+  animation: glitch-anim2 3s infinite linear alternate-reverse;
+  color: #00f5ff;
+  z-index: -2;
+  clip: rect(0, 900px, 0, 0);
+}
+
+@keyframes glitch-anim {
+  0% {
+    clip: rect(42px, 9999px, 44px, 0);
+    transform: skew(0.5deg);
+  }
+  20% {
+    clip: rect(12px, 9999px, 59px, 0);
+    transform: skew(0.2deg);
+  }
+  40% {
+    clip: rect(48px, 9999px, 29px, 0);
+    transform: skew(0.1deg);
+  }
+  60% {
+    clip: rect(42px, 9999px, 73px, 0);
+    transform: skew(0.3deg);
+  }
+  80% {
+    clip: rect(63px, 9999px, 27px, 0);
+    transform: skew(0.2deg);
+  }
+  100% {
+    clip: rect(34px, 9999px, 55px, 0);
+    transform: skew(0.4deg);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@keyframes glitch-anim2 {
+  0% {
+    clip: rect(65px, 9999px, 100px, 0);
+    transform: skew(0.4deg);
+  }
+  25% {
+    clip: rect(52px, 9999px, 74px, 0);
+    transform: skew(0.3deg);
+  }
+  50% {
+    clip: rect(79px, 9999px, 85px, 0);
+    transform: skew(0.3deg);
+  }
+  75% {
+    clip: rect(75px, 9999px, 5px, 0);
+    transform: skew(0.1deg);
+  }
+  100% {
+    clip: rect(67px, 9999px, 61px, 0);
+    transform: skew(0.2deg);
+  }
+}
+
+/* Modern neon glow - more subtle */
+.neon-glow {
+  text-shadow: 0 0 10px rgba(255, 0, 110, 0.5), 0 0 20px rgba(255, 0, 110, 0.3);
+}
+
+.neon-border {
+  border: 1px solid rgba(255, 0, 110, 0.6);
+  box-shadow: 0 0 15px rgba(255, 0, 110, 0.2);
+}
+
+/* Modern glassmorphism */
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass-strong {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(25px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.glass-card {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Modern pixel button */
+.pixel-button {
+  background: linear-gradient(135deg, #ff006e, #8338ec);
+  border: none;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 15px rgba(255, 0, 110, 0.3);
+}
+
+.pixel-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(255, 0, 110, 0.4);
+}
+
+.pixel-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.pixel-button:hover::before {
+  left: 100%;
+}
+
+/* Modern animated background */
+.modern-bg {
+  background: radial-gradient(ellipse at top, #0f0f23 0%, #000 70%);
+  position: relative;
+}
+
+.modern-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(255, 0, 110, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(131, 56, 236, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(0, 245, 255, 0.05) 0%, transparent 50%);
+  animation: float 20s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33% { transform: translateY(-10px) rotate(1deg); }
+  66% { transform: translateY(5px) rotate(-1deg); }
+}
+
+/* Utility classes */
+.font-pixel {
+  font-family: var(--font-press-start);
+  letter-spacing: 0.1em;
+}
+
+.font-mono-pixel {
+  font-family: var(--font-vt323);
+  letter-spacing: 0.05em;
+}
+
+/* Modern card hover effects */
+.modern-card {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modern-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Timeline improvements */
+.timeline-dot {
+  background: linear-gradient(135deg, #ff006e, #8338ec);
+  box-shadow: 0 0 20px rgba(255, 0, 110, 0.5);
+}
+
+/* Responsive text scaling */
+@media (max-width: 768px) {
+  .glitch {
+    font-size: 2.5rem;
+  }
 }
