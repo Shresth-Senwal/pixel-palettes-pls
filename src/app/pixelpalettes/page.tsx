@@ -51,6 +51,12 @@ export default function Home() {
    * Used for the interactive prize amount explanation
    */
   const [showPrizeTooltip, setShowPrizeTooltip] = useState(false);
+  
+  /**
+   * Mobile menu visibility state
+   * Controls whether the mobile navigation menu is open or closed
+   */
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   /**
    * Debug function to reset loading animation for testing
@@ -112,6 +118,26 @@ export default function Home() {
 
     return () => clearTimeout(initTimer);
   }, []);
+
+  /**
+   * Close mobile menu when clicking outside
+   * Improves user experience by allowing easy dismissal
+   */
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as Element;
+      const nav = document.querySelector('nav');
+      
+      if (isMobileMenuOpen && nav && !nav.contains(target)) {
+        setIsMobileMenuOpen(false);
+      }
+    };
+
+    if (isMobileMenuOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+      return () => document.removeEventListener('mousedown', handleClickOutside);
+    }
+  }, [isMobileMenuOpen]);
 
   // Prevent rendering until component is mounted (avoids hydration mismatch)
   if (!mounted) return null;
@@ -479,8 +505,75 @@ export default function Home() {
                     <Link href="/pixelpalettes/judges" className="text-xl hover:text-purple-400 transition-colors font-mono-pixel">Judges</Link>
                     <Link href="/pixelpalettes/sponsors" className="text-xl hover:text-purple-400 transition-colors font-mono-pixel">Sponsors</Link>
                   </div>
+                  
+                  {/* Mobile Menu Button */}
+                  <div className="md:hidden">
+                    <button 
+                      className="p-2 text-gray-300 hover:text-white transition-colors duration-300"
+                      onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                      aria-label="Toggle mobile menu"
+                    >
+                      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path 
+                          strokeLinecap="round" 
+                          strokeLinejoin="round" 
+                          strokeWidth={2} 
+                          d={isMobileMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"}
+                        />
+                      </svg>
+                    </button>
+                  </div>
                 </div>
               </div>
+              
+              {/* Mobile Menu Overlay */}
+              {isMobileMenuOpen && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.2 }}
+                  className="md:hidden absolute top-full left-0 right-0 bg-black/95 backdrop-blur-md border-b border-gray-800/50"
+                >
+                  <div className="max-w-6xl mx-auto px-6 py-4">
+                    <div className="flex flex-col space-y-4">
+                      <motion.a
+                        href="#about"
+                        className="px-4 py-3 text-lg font-mono-pixel text-gray-300 hover:text-purple-400 transition-colors duration-300 border-b border-gray-800/30"
+                        onClick={() => setIsMobileMenuOpen(false)}
+                        whileHover={{ x: 5 }}
+                        whileTap={{ scale: 0.95 }}
+                      >
+                        About
+                      </motion.a>
+                      <motion.div
+                        whileHover={{ x: 5 }}
+                        whileTap={{ scale: 0.95 }}
+                      >
+                        <Link 
+                          href="/pixelpalettes/judges" 
+                          className="block px-4 py-3 text-lg font-mono-pixel text-gray-300 hover:text-purple-400 transition-colors duration-300 border-b border-gray-800/30"
+                          onClick={() => setIsMobileMenuOpen(false)}
+                        >
+                          Judges
+                        </Link>
+                      </motion.div>
+                      <motion.div
+                        whileHover={{ x: 5 }}
+                        whileTap={{ scale: 0.95 }}
+                      >
+                        <Link 
+                          href="/pixelpalettes/sponsors" 
+                          className="block px-4 py-3 text-lg font-mono-pixel text-gray-300 hover:text-purple-400 transition-colors duration-300"
+                          onClick={() => setIsMobileMenuOpen(false)}
+                        >
+                          Sponsors
+                        </Link>
+                      </motion.div>
+                    </div>
+                  </div>
+                </motion.div>
+              )}
             </nav>
 
             {/* Hero Section - Main landing area with event branding */}

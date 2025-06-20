@@ -35,6 +35,12 @@ export default function SponsorsPage() {
    * Prevents SSR/CSR mismatch in Next.js applications
    */
   const [mounted, setMounted] = useState(false);
+  
+  /**
+   * Mobile menu visibility state
+   * Controls whether the mobile navigation menu is open or closed
+   */
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   /**
    * Effect hook to set mounted state after component initialization
@@ -142,8 +148,78 @@ export default function SponsorsPage() {
               {/* Current page highlighted with purple color */}
               <Link href="/pixelpalettes/sponsors" className="text-xl text-purple-400 font-mono-pixel">Sponsors</Link>
             </div>
+            
+            {/* Mobile Menu Button */}
+            <div className="md:hidden">
+              <button 
+                className="p-2 text-gray-300 hover:text-white transition-colors duration-300"
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                aria-label="Toggle mobile menu"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path 
+                    strokeLinecap="round" 
+                    strokeLinejoin="round" 
+                    strokeWidth={2} 
+                    d={isMobileMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"}
+                  />
+                </svg>
+              </button>
+            </div>
           </div>
         </div>
+        
+        {/* Mobile Menu Overlay */}
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.2 }}
+            className="md:hidden absolute top-full left-0 right-0 bg-black/95 backdrop-blur-md border-b border-gray-800/50"
+          >
+            <div className="max-w-6xl mx-auto px-6 py-4">
+              <div className="flex flex-col space-y-4">
+                <motion.div
+                  whileHover={{ x: 5 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <Link 
+                    href="/pixelpalettes#about" 
+                    className="block px-4 py-3 text-lg font-mono-pixel text-gray-300 hover:text-purple-400 transition-colors duration-300 border-b border-gray-800/30"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    About
+                  </Link>
+                </motion.div>
+                <motion.div
+                  whileHover={{ x: 5 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <Link 
+                    href="/pixelpalettes/judges" 
+                    className="block px-4 py-3 text-lg font-mono-pixel text-gray-300 hover:text-purple-400 transition-colors duration-300 border-b border-gray-800/30"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    Judges
+                  </Link>
+                </motion.div>
+                <motion.div
+                  whileHover={{ x: 5 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <Link 
+                    href="/pixelpalettes/sponsors" 
+                    className="block px-4 py-3 text-lg font-mono-pixel text-purple-400"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    Sponsors
+                  </Link>
+                </motion.div>
+              </div>
+            </div>
+          </motion.div>
+        )}
       </nav>
 
       {/* Main Content Container - Improved spacing from navbar */}
