@@ -1,27 +1,206 @@
 {
+  // ========================================
+  // TYPESCRIPT CONFIGURATION FOR IEEE RAS MUJ WEBSITE
+  // ========================================
+  /**
+   * TypeScript Compiler Configuration
+   * 
+   * This file configures the TypeScript compiler for the IEEE RAS MUJ website.
+   * It defines compilation options, module resolution, and type checking rules.
+   * 
+   * Key Features:
+   * - Next.js optimized settings for React development
+   * - Strict type checking for better code quality
+   * - Module resolution for modern JavaScript features
+   * - Path mapping for cleaner imports
+   * - JSX support with React 18+ features
+   * 
+   * @author IEEE RAS MUJ Development Team
+   * @version 2.0.0
+   * @since 2024
+   */
+  // ========================================
+  // COMPILER OPTIONS
+  // ========================================
   "compilerOptions": {
+    // ========================================
+    // TARGET AND MODULE CONFIGURATION
+    // ========================================
+    /**
+     * Target JavaScript version for compilation output
+     * ES2017 provides good balance between modern features and browser support
+     */
     "target": "ES2017",
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "strict": true,
-    "noEmit": true,
-    "esModuleInterop": true,
+    /**
+     * JavaScript module system to use
+     * ESNext uses the latest ECMAScript module syntax
+     */
     "module": "esnext",
-    "moduleResolution": "bundler",
+    /**
+     * Library files to include in compilation
+     * Includes DOM APIs and ES2017 features
+     */
+    "lib": [
+      "dom", // DOM APIs for web development
+      "dom.iterable", // Iterable DOM collections
+      "es2017" // ES2017 language features
+    ],
+    // ========================================
+    // MODULE RESOLUTION
+    // ========================================
+    /**
+     * Module resolution strategy
+     * 'node' follows Node.js module resolution algorithm
+     */
+    "moduleResolution": "node",
+    /**
+     * Allow importing JSON files as modules
+     * Useful for configuration and data files
+     */
     "resolveJsonModule": true,
-    "isolatedModules": true,
+    /**
+     * Allow synthetic default imports
+     * Enables 'import React from "react"' syntax
+     */
+    "allowSyntheticDefaultImports": true,
+    /**
+     * Enable ES module interoperability
+     * Allows mixing ES modules and CommonJS
+     */
+    "esModuleInterop": true,
+    // ========================================
+    // JSX CONFIGURATION
+    // ========================================
+    /**
+     * JSX compilation mode
+     * 'preserve' keeps JSX syntax for Next.js to handle
+     */
     "jsx": "preserve",
+    /**
+     * Skip type checking of declaration files
+     * Improves compilation performance
+     */
+    "skipLibCheck": true,
+    // ========================================
+    // TYPE CHECKING STRICTNESS
+    // ========================================
+    /**
+     * Enable all strict type checking options
+     * Enforces stricter TypeScript rules for better code quality
+     */
+    "strict": true,
+    /**
+     * Force consistent casing in file names
+     * Prevents issues on case-sensitive file systems
+     */
+    "forceConsistentCasingInFileNames": true,
+    /**
+     * Require explicit return types on functions
+     * Disabled to allow TypeScript to infer return types
+     */
+    "noImplicitReturns": false,
+    /**
+     * Report unreachable code as errors
+     * Helps identify dead code
+     */
+    "allowUnreachableCode": false,
+    // ========================================
+    // OUTPUT CONFIGURATION
+    // ========================================
+    /**
+     * Don't emit compiled JavaScript files
+     * Next.js handles compilation, so we only want type checking
+     */
+    "noEmit": true,
+    /**
+     * Preserve source maps for debugging
+     * Enables debugging TypeScript in the browser
+     */
+    "sourceMap": true,
+    /**
+     * Remove comments from output
+     * Reduces bundle size in production
+     */
+    "removeComments": false,
+    // ========================================
+    // PATH MAPPING
+    // ========================================
+    /**
+     * Base URL for path resolution
+     * Enables absolute imports from the src directory
+     */
+    "baseUrl": ".",
+    /**
+     * Path mapping for cleaner imports
+     * Allows '@/components/Button' instead of '../../components/Button'
+     */
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ], // General src directory alias
+      "@/components/*": [
+        "./src/components/*"
+      ], // Components directory
+      "@/utils/*": [
+        "./src/utils/*"
+      ], // Utilities directory
+      "@/styles/*": [
+        "./src/styles/*"
+      ], // Styles directory
+      "@/types/*": [
+        "./src/types/*"
+      ] // Type definitions directory
+    },
+    // ========================================
+    // INCREMENTAL COMPILATION
+    // ========================================
+    /**
+     * Enable incremental compilation
+     * Speeds up subsequent builds by caching compilation info
+     */
     "incremental": true,
+    /**
+     * File for storing incremental compilation info
+     * Cached in .next directory for Next.js compatibility
+     */
+    "tsBuildInfoFile": ".next/tsbuildinfo",
+    // ========================================
+    // NEXT.JS SPECIFIC OPTIONS
+    // ========================================
+    /**
+     * Enable Next.js plugin for enhanced TypeScript support
+     * Provides better integration with Next.js features
+     */
     "plugins": [
       {
         "name": "next"
       }
     ],
-    "paths": {
-      "@/*": ["./src/*"]
-    }
+    "allowJs": true,
+    "isolatedModules": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
-  "exclude": ["node_modules"]
+  // ========================================
+  // FILE INCLUSION AND EXCLUSION
+  // ========================================
+  /**
+   * Files and directories to include in compilation
+   * Covers all TypeScript and JavaScript files in the project
+   */
+  "include": [
+    "**/*.ts", // Next.js type definitions
+    "**/*.tsx", // All TypeScript files
+    ".next/types/**/*.ts", // All TypeScript React files
+    "next-env.d.ts" // Next.js generated types
+    ,
+    "out/types/**/*.ts"
+  ],
+  /**
+   * Files and directories to exclude from compilation
+   * Excludes dependencies and build outputs
+   */
+  "exclude": [
+    "node_modules", // Third-party dependencies
+    ".next", // Next.js build output (except types)
+    "out" // Static export output directory
+  ]
 }
