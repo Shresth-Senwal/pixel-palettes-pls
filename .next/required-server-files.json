@@ -99,7 +99,7 @@
         "transform": "lodash/{{member}}"
       }
     },
-    "outputFileTracingRoot": "C:\\D Drive\\Projects\\RAS\\Pixel Pallete\\rasWebsiteBackup\\pixel-palettes",
+    "outputFileTracingRoot": "C:\\D Drive\\Projects\\RAS\\Pixel Pallete\\rasWebsiteBackup\\pixel-palettes-pls",
     "experimental": {
       "nodeMiddleware": false,
       "cacheLife": {
@@ -286,10 +286,10 @@
       "removeConsole": true
     },
     "turbopack": {
-      "root": "C:\\D Drive\\Projects\\RAS\\Pixel Pallete\\rasWebsiteBackup\\pixel-palettes"
+      "root": "C:\\D Drive\\Projects\\RAS\\Pixel Pallete\\rasWebsiteBackup\\pixel-palettes-pls"
     }
   },
-  "appDir": "C:\\D Drive\\Projects\\RAS\\Pixel Pallete\\rasWebsiteBackup\\pixel-palettes",
+  "appDir": "C:\\D Drive\\Projects\\RAS\\Pixel Pallete\\rasWebsiteBackup\\pixel-palettes-pls",
   "relativeAppDir": "",
   "files": [
     ".next\\routes-manifest.json",

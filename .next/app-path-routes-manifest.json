@@ -1,8 +1,8 @@
 {
   "/_not-found/page": "/_not-found",
   "/favicon.ico/route": "/favicon.ico",
-  "/pixelpalettes/judges/page": "/pixelpalettes/judges",
   "/page": "/",
   "/pixelpalettes/sponsors/page": "/pixelpalettes/sponsors",
-  "/pixelpalettes/page": "/pixelpalettes"
+  "/pixelpalettes/page": "/pixelpalettes",
+  "/pixelpalettes/judges/page": "/pixelpalettes/judges"
 }
