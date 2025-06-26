@@ -42,6 +42,14 @@ html {
   scroll-behavior: smooth;
   /* Smooth scrolling for anchor links and programmatic scrolling */
   scroll-padding-top: 80px; /* Account for fixed navigation header */
+  /* Prevent horizontal overflow */
+  overflow-x: hidden;
+}
+
+body {
+  /* Prevent horizontal overflow */
+  overflow-x: hidden;
+  min-width: 320px; /* Minimum viewport width support */
 }
 
 /* Enhanced smooth scrolling for browsers that support scroll-behavior-timing */
@@ -406,6 +414,10 @@ html {
   /* Optimize font rendering */
   font-display: swap;
   text-rendering: optimizeLegibility;
+  /* Prevent text overflow */
+  word-wrap: break-word;
+  hyphens: auto;
+  max-width: 100%;
 }
 
 .font-mono-pixel {

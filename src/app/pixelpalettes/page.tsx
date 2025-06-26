@@ -316,7 +316,7 @@ export default function Home() {
             {/* Main Event Name - Split into PIXEL and PALETTES with different colors */}
             <div className="relative z-10 text-center mb-8">
               {/* PIXEL text in purple */}
-              <div className="flex flex-wrap justify-center items-center gap-2 md:gap-4 mb-4">
+              <div className="flex flex-wrap justify-center items-center gap-1 sm:gap-2 md:gap-3 mb-4">
                 {"PIXEL".split("").map((letter, i) => (
                   <motion.span
                     key={`pixel-${i}`}
@@ -324,7 +324,7 @@ export default function Home() {
                     variants={letterVariants}
                     initial="initial"
                     animate="animate"
-                    className="font-pixel text-4xl md:text-6xl lg:text-8xl text-purple-400 inline-block"
+                    className="font-pixel text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-purple-400 inline-block"
                     style={{
                       // Neon glow effect with multiple shadow layers
                       textShadow: '0 0 20px rgba(147, 51, 234, 0.8), 0 0 40px rgba(147, 51, 234, 0.4)',
@@ -337,7 +337,7 @@ export default function Home() {
               </div>
               
               {/* PALETTES text in cyan */}
-              <div className="flex flex-wrap justify-center items-center gap-2 md:gap-4">
+              <div className="flex flex-wrap justify-center items-center gap-1 sm:gap-2 md:gap-3">
                 {"PALETTES".split("").map((letter, i) => (
                   <motion.span
                     key={`palettes-${i}`}
@@ -345,7 +345,7 @@ export default function Home() {
                     variants={letterVariants}
                     initial="initial"
                     animate="animate"
-                    className="font-pixel text-4xl md:text-6xl lg:text-8xl text-cyan-400 inline-block"
+                    className="font-pixel text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-cyan-400 inline-block"
                     style={{
                       textShadow: '0 0 20px rgba(6, 182, 212, 0.8), 0 0 40px rgba(6, 182, 212, 0.4)',
                       transformStyle: 'preserve-3d'
@@ -578,7 +578,7 @@ export default function Home() {
 
             {/* Hero Section - Main landing area with event branding */}
             <section className="min-h-screen flex items-center justify-center relative modern-bg pt-20">
-              <div className="max-w-6xl mx-auto px-6 text-center relative z-10">
+              <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
                 {/* Main Title and Tagline */}
                 <motion.div
                   initial={{ opacity: 0, y: 30 }}
@@ -588,7 +588,7 @@ export default function Home() {
                 >
                   {/* Main Event Title - Glitch effect with neon glow */}
                   <motion.h1 
-                    className="glitch font-pixel text-5xl md:text-7xl lg:text-8xl mb-8 neon-glow"
+                    className="glitch font-pixel text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl mb-8 neon-glow text-center break-words"
                     data-text="PIXEL PALETTES" // Used for CSS glitch effect
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
@@ -599,7 +599,7 @@ export default function Home() {
                   
                   {/* Event Tagline */}
                   <motion.p 
-                    className="font-mono-pixel text-2xl md:text-3xl mb-4 text-gray-300"
+                    className="font-mono-pixel text-lg sm:text-xl md:text-2xl lg:text-3xl mb-4 text-gray-300 px-4"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.6, duration: 0.8 }}
