@@ -782,8 +782,128 @@ export default function Home() {
               </div>
             </section>
 
+            {/* Chief Guest Section */}
+            <section id="chief-guest" className="py-24 bg-gradient-to-b from-purple-900/10 to-black">
+              <div className="max-w-4xl mx-auto px-6">
+                {/* Section Header */}
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8 }}
+                  className="text-center mb-16"
+                >
+                  <h2 className="font-pixel text-3xl md:text-5xl mb-6 neon-glow">CHIEF GUEST</h2>
+                  <div className="w-16 h-0.5 bg-gradient-to-r from-purple-500 to-cyan-500 mx-auto"></div>
+                </motion.div>
+
+                {/* Chief Guest Card */}
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.2 }}
+                  className="max-w-2xl mx-auto"
+                >
+                  <div className="glass modern-card rounded-2xl p-8 text-center">
+                    {/* Guest Photo */}
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.6, delay: 0.3 }}
+                      className="mb-6"
+                    >
+                      <div className="relative w-32 h-32 mx-auto mb-6">
+                        <Image
+                          src="/images/people/guest.png"
+                          alt="Varun Kohli - CEO of Coding Blocks"
+                          width={128}
+                          height={128}
+                          quality={100}
+                          className="w-full h-full object-cover rounded-full border-4 border-gradient-to-r from-purple-500 to-cyan-500"
+                          style={{
+                            boxShadow: '0 0 30px rgba(147, 51, 234, 0.4), 0 0 60px rgba(6, 182, 212, 0.2)',
+                            imageRendering: 'crisp-edges'
+                          }}
+                          sizes="128px"
+                        />
+                        {/* Glowing Ring Animation */}
+                        <motion.div
+                          className="absolute inset-0 rounded-full border-2 border-transparent"
+                          style={{
+                            background: 'linear-gradient(45deg, #8B5CF6, #06B6D4, #8B5CF6)',
+                            mask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
+                            maskComposite: 'xor',
+                            WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
+                            WebkitMaskComposite: 'xor',
+                            padding: '2px'
+                          }}
+                          animate={{
+                            rotate: [0, 360]
+                          }}
+                          transition={{
+                            duration: 8,
+                            repeat: Infinity,
+                            ease: "linear"
+                          }}
+                        />
+                      </div>
+                    </motion.div>
+
+                    {/* Guest Name */}
+                    <motion.h3
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, delay: 0.4 }}
+                      className="font-pixel text-2xl md:text-3xl mb-2 text-white"
+                      style={{
+                        textShadow: '0 0 20px rgba(147, 51, 234, 0.6)'
+                      }}
+                    >
+                      VARUN KOHLI
+                    </motion.h3>
+
+                    {/* Guest Title */}
+                    <motion.p
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, delay: 0.5 }}
+                      className="font-mono-pixel text-lg md:text-xl mb-6 text-cyan-400"
+                    >
+                      CEO of Coding Blocks
+                    </motion.p>
+
+                    {/* LinkedIn Link */}
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, delay: 0.6 }}
+                    >
+                      <motion.a
+                        href="https://www.linkedin.com/in/kohli12/?originalSubdomain=in"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        className="inline-flex items-center space-x-2 font-mono-pixel text-base text-purple-400 hover:text-purple-300 transition-colors group"
+                      >
+                        <svg
+                          className="w-5 h-5"
+                          fill="currentColor"
+                          viewBox="0 0 24 24"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                        </svg>
+                        <span>Connect on LinkedIn</span>
+                        <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                      </motion.a>
+                    </motion.div>
+                  </div>
+                </motion.div>
+              </div>
+            </section>
+
             {/* Schedule Section - 24-hour timeline */}
-            <section id="schedule" className="py-24 bg-gradient-to-b from-purple-900/10 to-black">
+            <section id="schedule" className="py-24 bg-gradient-to-b from-black to-purple-900/10">
               <div className="max-w-4xl mx-auto px-6">
                 {/* Section Header */}
                 <motion.div
