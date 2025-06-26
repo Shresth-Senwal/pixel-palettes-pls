@@ -235,6 +235,66 @@ xl: 1280px  /* Desktops */
 - **Images**: Responsive sizing with Next.js Image component
 - **Typography**: Smaller font sizes on mobile, larger on desktop
 
+### Horizontal Overflow Prevention (Latest Update)
+
+**Issue Identified**: Large text elements causing horizontal scrolling on mobile devices
+
+**Solutions Implemented**:
+
+1. **Global Overflow Control**:
+```css
+html {
+  overflow-x: hidden;
+}
+
+body {
+  overflow-x: hidden;
+  min-width: 320px; /* Minimum viewport width support */
+}
+```
+
+2. **Responsive Text Scaling**:
+```css
+/* Before: text-4xl md:text-6xl lg:text-8xl */
+/* After: text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl */
+```
+
+3. **Typography Overflow Prevention**:
+```css
+.font-pixel {
+  font-family: var(--font-press-start);
+  letter-spacing: 0.1em;
+  font-display: swap;
+  text-rendering: optimizeLegibility;
+  /* Prevent text overflow */
+  word-wrap: break-word;
+  hyphens: auto;
+  max-width: 100%;
+}
+```
+
+4. **Container Spacing Optimization**:
+```css
+/* Loading Animation Containers */
+/* Before: gap-2 md:gap-4 */
+/* After: gap-1 sm:gap-2 md:gap-3 */
+
+/* Hero Container Padding */
+/* Before: px-6 */
+/* After: px-4 sm:px-6 lg:px-8 */
+```
+
+5. **Text Element Improvements**:
+- Added `break-words` class to main titles
+- Implemented responsive padding for taglines
+- Enhanced container responsiveness with better spacing
+
+**Testing Results**:
+- ✅ No horizontal scrolling on any screen size
+- ✅ Maintained visual aesthetics
+- ✅ Improved mobile experience
+- ✅ Build completed successfully with no errors
+
 ## 🚀 Performance Optimization Strategy
 
 ### Core Web Vitals Targets
@@ -548,6 +608,37 @@ NEXT_PUBLIC_SITE_URL=https://pixelpalettes.ieeerasmuj.com
 NEXT_PUBLIC_REGISTRATION_FORM_URL=https://forms.google.com/prod-form
 NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX
 ```
+
+## 📅 Recent Updates & Changes
+
+### December 2024 - Responsive Design & Schedule Updates
+
+**Horizontal Overflow Fix (December 2024)**:
+- Identified and resolved horizontal scrolling issues on mobile devices
+- Implemented comprehensive responsive design improvements
+- Enhanced typography scaling for better mobile experience
+- Added global overflow protection and container optimization
+
+**Schedule Update (December 2024)**:
+Updated event schedule with new dates and enhanced presentation:
+
+**Day 1 – June 27, 2025**:
+- 10:00 AM - Opening Ceremony
+- 11:00 AM - Let Begin
+- 1:00 PM - Project Theme Declaration
+- 2:00 PM-3:30 PM - Help from Mentor
+- 4:00 PM-5:00 PM - PPT Submission Deadline
+- 10:00 PM - Shortlisted Team Reveal
+
+**Day 2 – June 28, 2025**:
+- 11:00 AM-12:00 PM - Final Project Submission
+- 2:30 PM-5:00 PM - Final Presentation Round
+
+**Schedule Display Improvements**:
+- Added day headers with special cyan glow styling
+- Organized events under clear day sections
+- Maintained existing glassmorphism design and animations
+- Improved timeline readability and visual hierarchy
 
 ## 🔄 Future Enhancements
 
