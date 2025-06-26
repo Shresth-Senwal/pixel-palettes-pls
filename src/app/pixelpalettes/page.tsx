@@ -799,34 +799,49 @@ export default function Home() {
                 {/* Timeline Items */}
                 <div className="space-y-8">
                   {[
-                    { time: "11:00 AM", event: "Opening Ceremony", desc: "Welcome to Pixel Palettes hackathon" },
-                    { time: "11:15 AM", event: "Kickoff Bootcamp", desc: "45-minute intensive session to get started" },
-                    { time: "12:00 PM", event: "Hackathon Starts", desc: "Begin your 24-hour coding journey" },
+                    { time: "Day 1 - June 27, 2025", event: "", desc: "", isHeader: true },
+                    { time: "10:00 AM", event: "Opening Ceremony", desc: "Welcome to Pixel Palettes hackathon" },
+                    { time: "11:00 AM", event: "Let Begin", desc: "Start your hackathon journey" },
                     { time: "1:00 PM", event: "Project Theme Declaration", desc: "Teams announce their chosen themes" },
-                    { time: "5:00 PM", event: "PPT Submission Deadline", desc: "Submit your presentation slides" },
-                    { time: "8:00 PM", event: "Video Submission Window", desc: "Submit your project demonstration video" },
-                    { time: "Day 2 - 10:00 AM", event: "Final Project Submission", desc: "Complete project submission window (10:00 AM - 12:00 PM)" },
+                    { time: "2:00 PM - 3:30 PM", event: "Help from Mentor", desc: "Mentorship and guidance session" },
+                    { time: "4:00 PM - 5:00 PM", event: "PPT Submission Deadline", desc: "Submit your presentation slides" },
+                    { time: "10:00 PM", event: "Shortlisted Team Reveal", desc: "Announcement of teams moving to next round" },
+                    { time: "Day 2 - June 28, 2025", event: "", desc: "", isHeader: true },
+                    { time: "11:00 AM - 12:00 PM", event: "Final Project Submission", desc: "Complete project submission window" },
+                    { time: "2:30 PM - 5:00 PM", event: "Final Presentation Round", desc: "Teams present their final projects" },
                   ].map((item, index) => (
-                    // Individual Timeline Item
+                    // Individual Timeline Item or Header
                     <motion.div
                       key={index}
                       initial={{ opacity: 0, x: -30 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       transition={{ duration: 0.6, delay: index * 0.1 }}
-                      className="flex items-center space-x-6"
+                      className={item.isHeader ? "mb-4" : "flex items-center space-x-6"}
                     >
-                      {/* Timeline Dot - Styled with CSS class from globals.css */}
-                      <div className="timeline-dot w-4 h-4 rounded-full flex-shrink-0"></div>
-                      {/* Timeline Content Card */}
-                      <div className="glass modern-card rounded-xl p-6 flex-1">
-                        <div className="flex flex-col md:flex-row md:items-center md:justify-between">
-                          <div>
-                            <div className="font-pixel text-base text-pink-400 mb-2">{item.time}</div>
-                            <h4 className="font-pixel text-sm mb-2">{item.event}</h4>
-                            <p className="font-mono-pixel text-base text-gray-400">{item.desc}</p>
-                          </div>
+                      {item.isHeader ? (
+                        // Day Header
+                        <div className="text-center">
+                          <h3 className="font-pixel text-xl md:text-2xl text-cyan-400 mb-2 neon-glow">
+                            {item.time}
+                          </h3>
+                          <div className="w-24 h-0.5 bg-gradient-to-r from-cyan-500 to-purple-500 mx-auto"></div>
                         </div>
-                      </div>
+                      ) : (
+                        <>
+                          {/* Timeline Dot - Styled with CSS class from globals.css */}
+                          <div className="timeline-dot w-4 h-4 rounded-full flex-shrink-0"></div>
+                          {/* Timeline Content Card */}
+                          <div className="glass modern-card rounded-xl p-6 flex-1">
+                            <div className="flex flex-col md:flex-row md:items-center md:justify-between">
+                              <div>
+                                <div className="font-pixel text-base text-pink-400 mb-2">{item.time}</div>
+                                <h4 className="font-pixel text-sm mb-2">{item.event}</h4>
+                                <p className="font-mono-pixel text-base text-gray-400">{item.desc}</p>
+                              </div>
+                            </div>
+                          </div>
+                        </>
+                      )}
                     </motion.div>
                   ))}
                 </div>

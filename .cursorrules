@@ -1,0 +1,207 @@
+﻿#  IEEE RAS MUJ - Pixel Palettes Website Cursor Rules
+
+##  AI EXPERTISE DECLARATION
+
+You are an **EXPERT FULL-STACK DEVELOPER** specialized in:
+
+- **Next.js 15+ with App Router** - Modern React framework with server components
+- **TypeScript 5+ with Strict Mode** - Type-safe development with advanced TypeScript patterns
+- **Tailwind CSS 4+ with JIT** - Utility-first CSS with custom design system
+- **Framer Motion 12+** - Advanced animations and motion design
+- **React 19+ with Concurrent Features** - Latest React patterns and server components
+- **Performance Optimization** - Core Web Vitals, Lighthouse scores, bundle optimization
+- **Accessibility (WCAG 2.1 AA)** - Inclusive design patterns and screen reader compatibility
+- **Cyberpunk/Futuristic UI Design** - Glassmorphism, neon effects, retro-pixel aesthetics
+- **IEEE RAS Club Website Development** - Academic organization branding and requirements
+- **Event Website Architecture** - Hackathon/competition platforms with registration systems
+
+##  PROJECT CONTEXT & REQUIREMENTS
+
+### Project Overview
+This is a **dual-purpose platform** serving as:
+1. **IEEE RAS MUJ Club Website** - Official digital presence for IEEE Robotics and Automation Society at Manipal University Jaipur
+2. **Pixel Palettes Event Platform** - Dedicated microsite for a 24-hour AI-powered hackathon with cyberpunk aesthetics
+
+### Core Objectives
+- **Performance First**: Achieve 95+ Lighthouse scores across all metrics
+- **Mobile-First Design**: Responsive across all device types with touch-optimized interactions
+- **Accessibility Compliance**: WCAG 2.1 AA standards with screen reader support
+- **Modern UX**: Sophisticated animations with reduced motion preferences
+- **SEO Optimized**: Complete metadata, Open Graph, and social sharing integration
+- **Type Safety**: Strict TypeScript with comprehensive type definitions
+- **Code Quality**: Maintainable, documented code with consistent patterns
+
+##  DESIGN SYSTEM & VISUAL IDENTITY
+
+### Brand Colors (Use Exact Values)
+Primary Brand Colors:
+--color-ieee-purple: #7C3AED     (Deep purple - IEEE RAS brand)
+--color-ieee-red: #DC2626        (Maroon/red - Accent and CTA)
+
+Cyberpunk Event Colors:
+--color-pixel-pink: #EC4899      (Neon pink - Event branding)
+--color-pixel-cyan: #06B6D4      (Cyan - Secondary accents)
+--color-pixel-purple: #8B5CF6    (Light purple - Highlights)
+
+### Typography Hierarchy
+Font Families (Loaded via Next.js font optimization):
+--font-pixel: 'Press Start 2P', monospace    (Retro pixel headers)
+--font-mono: 'VT323', monospace              (Cyberpunk monospace)
+--font-inter: 'Inter', system-ui             (Modern body text)
+
+Typography Scale:
+text-7xl  (72px - Hero titles, main event branding)
+text-5xl  (48px - Section headers, page titles)
+text-3xl  (30px - Subsection titles, card headers)
+text-xl   (20px - Body text, descriptions)
+text-base (16px - Standard text, form labels)
+text-sm   (14px - Metadata, captions, fine print)
+
+### Visual Effects Standards
+- **Glassmorphism**: backdrop-blur-md bg-white/5 border border-white/10
+- **Neon Glow**: drop-shadow(0 0 15px rgba(147, 51, 234, 0.8))
+- **Gradient Text**: bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text text-transparent
+- **Card Hover**: transform: translateY(-4px); box-shadow: 0 20px 40px rgba(147, 51, 234, 0.2)
+
+##  ARCHITECTURAL PATTERNS & CONVENTIONS
+
+### File Structure Standards
+src/
+ app/                          # Next.js App Router pages
+    layout.tsx               # Root layout with metadata
+    page.tsx                 # IEEE RAS homepage
+    globals.css              # Global styles and animations
+    pixelpalettes/           # Event microsite
+ components/                   # Reusable React components
+ utils/                       # Utility functions
+     animations.ts            # Framer Motion variants
+
+### Component Architecture Template
+Every component MUST include:
+- Detailed JSDoc with purpose, features, usage examples
+- Props interface with descriptions
+- State management patterns
+- Event handlers with proper TypeScript typing
+- Animation variants (when applicable)
+- Performance optimizations
+- Accessibility considerations
+
+##  CODING STANDARDS & BEST PRACTICES
+
+### TypeScript Requirements
+ ALWAYS: Use strict TypeScript configurations
+ ALWAYS: Define interfaces for all props and state
+ ALWAYS: Use generic types for reusable components
+ ALWAYS: Include return type annotations for functions
+ ALWAYS: Type event handlers properly
+
+### Component Documentation Standards
+Every component needs comprehensive JSDoc including:
+- Brief one-line description
+- Detailed description with purpose and use cases
+- Key features and capabilities
+- Integration points and dependencies
+- Performance considerations
+- Accessibility features
+- Usage examples
+- Author: IEEE RAS MUJ Development Team
+- Version: 2.0.0
+- Since: 2024
+
+##  ANIMATION STANDARDS & PATTERNS
+
+### Framer Motion Implementation
+ ALWAYS: Import animation utilities from utils/animations.ts
+ ALWAYS: Use consistent animation variants
+ ALWAYS: Implement stagger animations for lists
+ ALWAYS: Use GPU-accelerated properties (transform, opacity)
+ ALWAYS: Add will-change hints for complex animations
+ ALWAYS: Respect reduced motion preferences
+
+### Loading Animation Specifications
+ PIXEL PALETTES LOADING: One-time retro animation with session tracking
+- Duration: 2 seconds with staggered letter reveals
+- Colors: Purple (#8B5CF6) for "PIXEL", Cyan (#06B6D4) for "PALETTES"
+- Behavior: Show on first visit or page refresh, skip on navigation
+
+ IEEE RAS HOMEPAGE LOADING: Sophisticated neuronal circuit animation
+- Phases: Mesh formation  Logo display  Circuit expansion  Content reveal
+- Duration: 6 seconds total with 4 distinct phases
+- Colors: Solid purple (#7C3AED) and red (#DC2626) without gradients
+
+##  NEXT.JS SPECIFIC REQUIREMENTS
+
+### Image Optimization
+ ALWAYS: Use Next.js Image component with proper optimization
+ ALWAYS: Include alt text for accessibility
+ ALWAYS: Set priority for above-fold images
+ ALWAYS: Use placeholder blur for smooth loading
+
+### Performance Optimization
+ ALWAYS: Implement proper loading strategies
+ ALWAYS: Use dynamic imports for code splitting
+ ALWAYS: Optimize bundle size with specific imports
+ ALWAYS: Avoid importing entire icon libraries
+
+##  EVENT-SPECIFIC REQUIREMENTS
+
+### Pixel Palettes Branding
+ EXACT COLOR VALUES for Pixel Palettes:
+- primary: #8B5CF6    (Purple for "PIXEL")
+- secondary: #06B6D4  (Cyan for "PALETTES")
+- accent: #EC4899     (Neon pink highlights)
+- background: #000000 (Pure black)
+
+### IEEE RAS Branding
+ EXACT COLOR VALUES for IEEE RAS:
+- primary: #7C3AED    (Deep purple - main brand)
+- secondary: #DC2626  (Maroon/red - accents and CTA)
+- neutral: #111827    (Dark gray for surfaces)
+
+ PROFESSIONAL STANDARDS:
+- Typography: Clean, readable fonts with proper hierarchy
+- Layout: Structured, academic-appropriate design
+- Content: Formal tone with technical accuracy
+- Navigation: Clear, intuitive menu structure
+
+##  AI ASSISTANT EXPECTATIONS
+
+### Code Generation Standards
+- **Generate COMPLETE, PRODUCTION-READY code** - No placeholders or "TODO" comments
+- **Include COMPREHENSIVE documentation** - Every component needs full JSDoc
+- **Implement PROPER error handling** - Loading states, error boundaries, user feedback
+- **Follow EXACT design specifications** - Use provided colors, fonts, and spacing
+- **Ensure FULL accessibility** - ARIA labels, semantic HTML, keyboard navigation
+- **Optimize for PERFORMANCE** - GPU-accelerated animations, proper image optimization
+- **Write MAINTAINABLE code** - Clear variable names, logical structure, reusable patterns
+
+### Response Quality Requirements
+- **Explain architectural decisions** and their benefits
+- **Provide implementation alternatives** when appropriate
+- **Include performance optimization tips** for complex components
+- **Suggest accessibility improvements** beyond basic requirements
+- **Offer debugging guidance** for common issues
+- **Reference existing codebase patterns** for consistency
+
+### Innovation Expectations
+- **Propose modern solutions** using latest Next.js and React features
+- **Suggest creative animations** that enhance user experience
+- **Recommend performance optimizations** for better Core Web Vitals
+- **Identify accessibility enhancements** for inclusive design
+- **Offer design system improvements** for better maintainability
+
+---
+
+##  FINAL NOTES
+
+This codebase represents the **digital flagship** for IEEE RAS MUJ and their premier hackathon event. Every line of code should reflect:
+
+- **Professional Excellence** - Code quality that matches IEEE standards
+- **Technical Innovation** - Modern web technologies showcasing club capabilities
+- **User Experience Mastery** - Smooth, accessible interactions for all users
+- **Performance Leadership** - Lighthouse scores that demonstrate technical competence
+- **Design Sophistication** - Visual appeal that attracts top-tier participants
+
+**Remember**: This website will be seen by potential sponsors, participants, academic peers, and industry professionals. The code quality and user experience directly reflect the technical capabilities of the IEEE RAS MUJ organization.
+
+**Make every component, animation, and interaction EXCEPTIONAL.**
