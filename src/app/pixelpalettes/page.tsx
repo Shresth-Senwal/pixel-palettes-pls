@@ -765,7 +765,7 @@ export default function Home() {
                 {/* Teams Grid - First 42 teams */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                   {[
-                    'Jems Labs', 'CookedCoders', 'CODE.IO', 'Crafting Lords', 'Uzumqki', 'The Silent Wheels',
+                    'Jems Labs', 'CookedCoders', 'CODE.IO', 'Crafting Lords', 'Uzumaki', 'The Silent Wheels',
                     'Nemolly', 'Prison Breakers', 'ScoopNSlap', 'AI-Luminati', 'ROOM 104', 'Pseudo Squad',
                     'CODERS', 'GPT-SQUAD', 'Bluds', 'Code Smashers', '17', 'byteMe',
                     'Defenders', 'The Heist Squad', 'CodeBlooded', 'Hack & Hue', 'Fortrix', 'CodeYogi',
