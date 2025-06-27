@@ -758,7 +758,7 @@ export default function Home() {
                   <h2 className="font-pixel text-3xl md:text-5xl mb-6 neon-glow">QUALIFIED TEAMS</h2>
                   <div className="w-16 h-0.5 bg-gradient-to-r from-purple-500 to-cyan-500 mx-auto mb-4"></div>
                   <p className="font-mono-pixel text-lg text-gray-400 max-w-2xl mx-auto">
-                    Congratulations to the 44 teams that have qualified for Round 1 of Pixel Palettes!
+                    Congratulations to the 44 teams that have successfully cleared Round 1 of Pixel Palettes!
                   </p>
                 </motion.div>
 
