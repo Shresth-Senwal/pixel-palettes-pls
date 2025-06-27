@@ -762,7 +762,7 @@ export default function Home() {
                   </p>
                 </motion.div>
 
-                {/* Teams Grid */}
+                {/* Teams Grid - First 42 teams */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                   {[
                     'Jems Labs', 'CookedCoders', 'CODE.IO', 'Crafting Lords', 'Uzumqki', 'The Silent Wheels',
@@ -771,8 +771,7 @@ export default function Home() {
                     'Defenders', 'The Heist Squad', 'CodeBlooded', 'Hack & Hue', 'Fortrix', 'CodeYogi',
                     'Pixies', 'Truth Trackers', 'Error_404!', 'Viraj Jadhav', 'Hotel California', 'AlgoSapiens',
                     'Cretaort', 'DB_killers', 'ERROR\'404\'', 'ashishmehtawork108', 'CodeSentry', 'Horizon Code Asylum',
-                    'Sky Sentinel', 'Justice', 'V Vanquishers', 'Sudo Wudo', 'Aditya Tiwari', 'Purrgrammers',
-                    '2Enoughs'
+                    'Sky Sentinel', 'Justice', 'V Vanquishers', 'Sudo Wudo', 'Aditya Tiwari', 'Purrgrammers'
                   ].map((teamName, index) => (
                     <motion.div
                       key={index}
@@ -857,6 +856,92 @@ export default function Home() {
                       </motion.div>
                     </motion.div>
                   ))}
+                </div>
+
+                {/* 43rd Team - Centered below the grid */}
+                <div className="flex justify-center mt-6">
+                  <motion.div
+                    key={42}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 42 * 0.05 }}
+                    whileHover={{ 
+                      scale: 1.05,
+                      rotateY: 5,
+                      transition: { duration: 0.3 }
+                    }}
+                    className="glass modern-card rounded-xl p-6 text-center relative overflow-hidden group w-full max-w-sm"
+                    style={{
+                      background: 'rgba(0, 0, 0, 0.4)',
+                      backdropFilter: 'blur(12px)',
+                      border: '1px solid rgba(139, 92, 246, 0.2)',
+                      boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3)'
+                    }}
+                  >
+                    {/* Team Number Badge */}
+                    <div className="absolute top-2 right-2 w-8 h-8 rounded-full bg-gradient-to-r from-purple-500 to-cyan-500 flex items-center justify-center">
+                      <span className="font-pixel text-xs text-white">43</span>
+                    </div>
+
+                    {/* Glowing Border Effect on Hover */}
+                    <div className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                         style={{
+                           background: 'linear-gradient(45deg, #8B5CF6, #06B6D4, #EC4899, #8B5CF6)',
+                           mask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
+                           maskComposite: 'xor',
+                           WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
+                           WebkitMaskComposite: 'xor',
+                           padding: '1px'
+                         }}
+                    />
+
+                    {/* Team Name */}
+                    <h3 className="font-pixel text-base md:text-lg mb-4 text-white relative z-10"
+                        style={{
+                          textShadow: '0 0 15px rgba(139, 92, 246, 0.8)'
+                        }}>
+                      2Enoughs
+                    </h3>
+
+                    {/* Status Badge */}
+                    <div className="inline-flex items-center px-3 py-1 rounded-full text-xs font-mono-pixel"
+                         style={{
+                           background: 'linear-gradient(45deg, rgba(34, 197, 94, 0.1), rgba(34, 197, 94, 0.2))',
+                           border: '1px solid rgba(34, 197, 94, 0.3)',
+                           color: '#10b981'
+                         }}>
+                      <div className="w-2 h-2 rounded-full bg-green-500 mr-2 animate-pulse"></div>
+                      QUALIFIED
+                    </div>
+
+                    {/* Particle Effect */}
+                    <motion.div
+                      className="absolute inset-0 pointer-events-none"
+                      initial={{ opacity: 0 }}
+                      whileHover={{ opacity: 1 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      {[...Array(3)].map((_, i) => (
+                        <motion.div
+                          key={i}
+                          className="absolute w-1 h-1 bg-cyan-400 rounded-full"
+                          style={{
+                            left: `${20 + i * 30}%`,
+                            top: `${30 + i * 20}%`,
+                          }}
+                          animate={{
+                            y: [0, -10, 0],
+                            opacity: [0, 1, 0],
+                          }}
+                          transition={{
+                            duration: 2,
+                            repeat: Infinity,
+                            delay: i * 0.2,
+                          }}
+                        />
+                      ))}
+                    </motion.div>
+                  </motion.div>
                 </div>
 
                 {/* Celebration Message */}
