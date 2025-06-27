@@ -2,10 +2,9 @@
 
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
-import { Calendar, MapPin, Trophy, Clock, ArrowRight, Zap, Info, Send } from 'lucide-react';
+import { Calendar, MapPin, Trophy, Clock, ArrowRight, Zap, Info } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
-import SubmissionForm from '@/components/SubmissionForm';
 
 /**
  * Pixel Palettes Event Page Component
@@ -59,11 +58,7 @@ export default function Home() {
    */
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  /**
-   * Submission form visibility state
-   * Controls whether the project submission modal is open or closed
-   */
-  const [isSubmissionFormOpen, setIsSubmissionFormOpen] = useState(false);
+
 
   /**
    * Debug function to reset loading animation for testing
@@ -149,20 +144,7 @@ export default function Home() {
   // Prevent rendering until component is mounted (avoids hydration mismatch)
   if (!mounted) return null;
 
-  /**
-   * Handles submission button clicks
-   * Opens the project submission form modal
-   */
-  const handleSubmissionClick = () => {
-    setIsSubmissionFormOpen(true);
-  };
 
-  /**
-   * Handles closing the submission form modal
-   */
-  const handleCloseSubmissionForm = () => {
-    setIsSubmissionFormOpen(false);
-  };
 
   /**
    * Framer Motion animation variants for loading screen container
@@ -712,36 +694,7 @@ export default function Home() {
                   </div>
                 </motion.div>
 
-                {/* Primary CTA Button - Submit Project */}
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 1.2, duration: 0.6 }}
-                  className="mb-16"
-                >
-                  <motion.button 
-                    onClick={handleSubmissionClick}
-                    className="pixel-button font-pixel text-base px-10 py-5 rounded-xl text-white group flex items-center mx-auto space-x-3 relative overflow-hidden"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    <Send size={18} />
-                    <span>SUBMIT</span>
-                    
-                    {/* Animated Glowing Purple Effect */}
-                    <motion.div
-                      className="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-cyan-500/20 rounded-xl"
-                      animate={{
-                        boxShadow: [
-                          "0 0 20px rgba(147, 51, 234, 0.3)",
-                          "0 0 40px rgba(147, 51, 234, 0.6)",
-                          "0 0 20px rgba(147, 51, 234, 0.3)"
-                        ]
-                      }}
-                      transition={{ duration: 2, repeat: Infinity }}
-                    />
-                  </motion.button>
-                </motion.div>
+
               </div>
             </section>
 
@@ -1256,11 +1209,7 @@ export default function Home() {
         )}
       </AnimatePresence>
 
-      {/* Submission Form Modal */}
-      <SubmissionForm 
-        isOpen={isSubmissionFormOpen}
-        onClose={handleCloseSubmissionForm}
-      />
+
     </div>
   );
 }
