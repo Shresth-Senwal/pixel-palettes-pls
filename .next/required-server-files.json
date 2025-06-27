@@ -99,7 +99,7 @@
         "transform": "lodash/{{member}}"
       }
     },
-    "outputFileTracingRoot": "C:\\D Drive\\Projects\\IEE_RAS\\Website\\pixel-palettes-pls",
+    "outputFileTracingRoot": "C:\\D_Drive\\Projects\\IEE_RAS\\Website\\Versions\\Round2",
     "experimental": {
       "nodeMiddleware": false,
       "cacheLife": {
@@ -286,10 +286,10 @@
       "removeConsole": true
     },
     "turbopack": {
-      "root": "C:\\D Drive\\Projects\\IEE_RAS\\Website\\pixel-palettes-pls"
+      "root": "C:\\D_Drive\\Projects\\IEE_RAS\\Website\\Versions\\Round2"
     }
   },
-  "appDir": "C:\\D Drive\\Projects\\IEE_RAS\\Website\\pixel-palettes-pls",
+  "appDir": "C:\\D_Drive\\Projects\\IEE_RAS\\Website\\Versions\\Round2",
   "relativeAppDir": "",
   "files": [
     ".next\\routes-manifest.json",

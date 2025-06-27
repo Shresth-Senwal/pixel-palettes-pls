@@ -104,6 +104,12 @@
       "namedRegex": "^/pixelpalettes/judges(?:/)?$"
     },
     {
+      "page": "/pixelpalettes/problems",
+      "regex": "^/pixelpalettes/problems(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/pixelpalettes/problems(?:/)?$"
+    },
+    {
       "page": "/pixelpalettes/sponsors",
       "regex": "^/pixelpalettes/sponsors(?:/)?$",
       "routeKeys": {},

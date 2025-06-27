@@ -1,30 +1,6 @@
 {
   "version": 4,
   "routes": {
-    "/pixelpalettes/sponsors": {
-      "experimentalBypassFor": [
-        {
-          "type": "header",
-          "key": "Next-Action"
-        },
-        {
-          "type": "header",
-          "key": "content-type",
-          "value": "multipart/form-data;.*"
-        }
-      ],
-      "initialRevalidateSeconds": false,
-      "srcRoute": "/pixelpalettes/sponsors",
-      "dataRoute": "/pixelpalettes/sponsors.rsc",
-      "allowHeader": [
-        "host",
-        "x-matched-path",
-        "x-prerender-revalidate",
-        "x-prerender-revalidate-if-generated",
-        "x-next-revalidated-tags",
-        "x-next-revalidate-tag-token"
-      ]
-    },
     "/favicon.ico": {
       "initialHeaders": {
         "cache-control": "public, max-age=0, must-revalidate",
@@ -54,7 +30,7 @@
         "x-next-revalidate-tag-token"
       ]
     },
-    "/": {
+    "/pixelpalettes/sponsors": {
       "experimentalBypassFor": [
         {
           "type": "header",
@@ -67,8 +43,32 @@
         }
       ],
       "initialRevalidateSeconds": false,
-      "srcRoute": "/",
-      "dataRoute": "/index.rsc",
+      "srcRoute": "/pixelpalettes/sponsors",
+      "dataRoute": "/pixelpalettes/sponsors.rsc",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/pixelpalettes/judges": {
+      "experimentalBypassFor": [
+        {
+          "type": "header",
+          "key": "Next-Action"
+        },
+        {
+          "type": "header",
+          "key": "content-type",
+          "value": "multipart/form-data;.*"
+        }
+      ],
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/pixelpalettes/judges",
+      "dataRoute": "/pixelpalettes/judges.rsc",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -102,7 +102,7 @@
         "x-next-revalidate-tag-token"
       ]
     },
-    "/pixelpalettes/judges": {
+    "/": {
       "experimentalBypassFor": [
         {
           "type": "header",
@@ -115,8 +115,32 @@
         }
       ],
       "initialRevalidateSeconds": false,
-      "srcRoute": "/pixelpalettes/judges",
-      "dataRoute": "/pixelpalettes/judges.rsc",
+      "srcRoute": "/",
+      "dataRoute": "/index.rsc",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/pixelpalettes/problems": {
+      "experimentalBypassFor": [
+        {
+          "type": "header",
+          "key": "Next-Action"
+        },
+        {
+          "type": "header",
+          "key": "content-type",
+          "value": "multipart/form-data;.*"
+        }
+      ],
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/pixelpalettes/problems",
+      "dataRoute": "/pixelpalettes/problems.rsc",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -130,8 +154,8 @@
   "dynamicRoutes": {},
   "notFoundRoutes": [],
   "preview": {
-    "previewModeId": "9a9dcbf7df8c40ab4b7bc4ff5b3cbefe",
-    "previewModeSigningKey": "bcd000a400233560de57380f8ef26cdfa92b03ff2016046b521a5b20959aea16",
-    "previewModeEncryptionKey": "c7c6bf4ff4b197a5f3726c7c2c568fd833dd10c8153603a5d90020c40efd82db"
+    "previewModeId": "54daf5884e719fa2bb8a31b2f7c63595",
+    "previewModeSigningKey": "0bab4bc1e4e029d8c784d0d2f1313dcfd84b3aee7e34bae9f53e4390f43e8581",
+    "previewModeEncryptionKey": "ef8b919749ead8489d737762ae1a747ca74fb93416e243d30eda5e7c57a07d72"
   }
 }

@@ -1,7 +1,5 @@
 {
   "/favicon.ico/route": "app/favicon.ico/route.js",
   "/page": "app/page.js",
-  "/pixelpalettes/judges/page": "app/pixelpalettes/judges/page.js",
-  "/pixelpalettes/page": "app/pixelpalettes/page.js",
-  "/pixelpalettes/sponsors/page": "app/pixelpalettes/sponsors/page.js"
+  "/pixelpalettes/page": "app/pixelpalettes/page.js"
 }

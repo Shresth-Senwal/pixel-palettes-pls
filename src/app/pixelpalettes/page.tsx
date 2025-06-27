@@ -2,9 +2,10 @@
 
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
-import { Calendar, MapPin, Trophy, Clock, ArrowRight, Zap, Info } from 'lucide-react';
+import { Calendar, MapPin, Trophy, Clock, ArrowRight, Zap, Info, Send } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
+import SubmissionForm from '@/components/SubmissionForm';
 
 /**
  * Pixel Palettes Event Page Component
@@ -57,6 +58,12 @@ export default function Home() {
    * Controls whether the mobile navigation menu is open or closed
    */
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  /**
+   * Submission form visibility state
+   * Controls whether the project submission modal is open or closed
+   */
+  const [isSubmissionFormOpen, setIsSubmissionFormOpen] = useState(false);
 
   /**
    * Debug function to reset loading animation for testing
@@ -143,13 +150,18 @@ export default function Home() {
   if (!mounted) return null;
 
   /**
-   * Handles registration button clicks
-   * Opens external Unstop registration in new tab
-   * Uses window.open for better user experience than direct navigation
+   * Handles submission button clicks
+   * Opens the project submission form modal
    */
-  const handleRegistrationClick = () => {
-    // Open external registration URL in new tab
-    window.open('https://unstop.com/hackathons/pixel-palette-manipal-institute-of-technology-manipal-1504966', '_blank');
+  const handleSubmissionClick = () => {
+    setIsSubmissionFormOpen(true);
+  };
+
+  /**
+   * Handles closing the submission form modal
+   */
+  const handleCloseSubmissionForm = () => {
+    setIsSubmissionFormOpen(false);
   };
 
   /**
@@ -502,6 +514,7 @@ export default function Home() {
                   {/* Desktop Navigation Menu - Hidden on mobile */}
                   <div className="hidden md:flex space-x-8">
                     <a href="#about" className="text-xl hover:text-purple-400 transition-colors font-mono-pixel">About</a>
+                    <Link href="/pixelpalettes/problems" className="text-xl hover:text-purple-400 transition-colors font-mono-pixel">Problems</Link>
                     <Link href="/pixelpalettes/judges" className="text-xl hover:text-purple-400 transition-colors font-mono-pixel">Judges</Link>
                     <Link href="/pixelpalettes/sponsors" className="text-xl hover:text-purple-400 transition-colors font-mono-pixel">Sponsors</Link>
                   </div>
@@ -546,6 +559,18 @@ export default function Home() {
                       >
                         About
                       </motion.a>
+                      <motion.div
+                        whileHover={{ x: 5 }}
+                        whileTap={{ scale: 0.95 }}
+                      >
+                        <Link 
+                          href="/pixelpalettes/problems" 
+                          className="block px-4 py-3 text-lg font-mono-pixel text-gray-300 hover:text-purple-400 transition-colors duration-300 border-b border-gray-800/30"
+                          onClick={() => setIsMobileMenuOpen(false)}
+                        >
+                          Problems
+                        </Link>
+                      </motion.div>
                       <motion.div
                         whileHover={{ x: 5 }}
                         whileTap={{ scale: 0.95 }}
@@ -687,7 +712,7 @@ export default function Home() {
                   </div>
                 </motion.div>
 
-                {/* Primary CTA Button - Registration */}
+                {/* Primary CTA Button - Submit Project */}
                 <motion.div
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
@@ -695,22 +720,22 @@ export default function Home() {
                   className="mb-16"
                 >
                   <motion.button 
-                    onClick={handleRegistrationClick}
+                    onClick={handleSubmissionClick}
                     className="pixel-button font-pixel text-base px-10 py-5 rounded-xl text-white group flex items-center mx-auto space-x-3 relative overflow-hidden"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    <span>REGISTER NOW</span>
-                    <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                    <Send size={18} />
+                    <span>SUBMIT</span>
                     
-                    {/* Animated Glowing Red Effect */}
+                    {/* Animated Glowing Purple Effect */}
                     <motion.div
-                      className="absolute inset-0 bg-gradient-to-r from-red-500/20 to-pink-500/20 rounded-xl"
+                      className="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-cyan-500/20 rounded-xl"
                       animate={{
                         boxShadow: [
-                          "0 0 20px rgba(239, 68, 68, 0.3)",
-                          "0 0 40px rgba(239, 68, 68, 0.6)",
-                          "0 0 20px rgba(239, 68, 68, 0.3)"
+                          "0 0 20px rgba(147, 51, 234, 0.3)",
+                          "0 0 40px rgba(147, 51, 234, 0.6)",
+                          "0 0 20px rgba(147, 51, 234, 0.3)"
                         ]
                       }}
                       transition={{ duration: 2, repeat: Infinity }}
@@ -968,77 +993,7 @@ export default function Home() {
               </div>
             </section>
 
-            {/* Registration Section - Event details and CTA */}
-            <section id="register" className="py-24 bg-gradient-to-b from-black to-purple-900/10">
-              <div className="max-w-4xl mx-auto px-6 text-center">
-                {/* Section Header */}
-                <motion.div
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8 }}
-                  className="mb-12"
-                >
-                  <h2 className="font-pixel text-3xl md:text-5xl mb-6 neon-glow">REGISTER</h2>
-                  <div className="w-16 h-0.5 bg-gradient-to-r from-cyan-500 to-purple-500 mx-auto mb-8"></div>
-                  <p className="font-mono-pixel text-xl text-gray-300 max-w-2xl mx-auto">
-                    Ready to push the boundaries of AI and design? Join us for this incredible 24-hour journey.
-                  </p>
-                </motion.div>
 
-                {/* Registration Details and CTA */}
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.8 }}
-                  className="max-w-md mx-auto"
-                >
-                  {/* Registration Details Card */}
-                  <div className="glass modern-card rounded-2xl p-8 mb-8">
-                    <div className="space-y-4 font-mono-pixel text-base">
-                      {/* Team Size */}
-                      <div className="flex justify-between items-center py-2 border-b border-gray-700/50">
-                        <span className="text-gray-400">Team Size</span>
-                        <span>1-4 Members</span>
-                      </div>
-                      {/* Registration Fee */}
-                      <div className="flex justify-between items-center py-2 border-b border-gray-700/50">
-                        <span className="text-gray-400">Registration Fee</span>
-                        <span className="text-green-400 font-pixel text-sm">FREE</span>
-                      </div>
-                      {/* Registration Deadline */}
-                      <div className="flex justify-between items-center py-2">
-                        <span className="text-gray-400">Deadline</span>
-                        <span>11:59 PM, 26 June 2024</span>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  {/* Registration CTA Button */}
-                  <motion.button
-                    onClick={handleRegistrationClick}
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    className="pixel-button font-pixel text-base px-12 py-5 rounded-xl text-white w-full group flex items-center justify-center space-x-3 relative overflow-hidden"
-                  >
-                    <span>REGISTER NOW</span>
-                    <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-                    
-                    {/* Animated Glowing Red Effect */}
-                    <motion.div
-                      className="absolute inset-0 bg-gradient-to-r from-red-500/20 to-pink-500/20 rounded-xl"
-                      animate={{
-                        boxShadow: [
-                          "0 0 20px rgba(239, 68, 68, 0.3)",
-                          "0 0 40px rgba(239, 68, 68, 0.6)",
-                          "0 0 20px rgba(239, 68, 68, 0.3)"
-                        ]
-                      }}
-                      transition={{ duration: 2, repeat: Infinity }}
-                    />
-                  </motion.button>
-                </motion.div>
-              </div>
-            </section>
 
             {/* Sponsors Section - Show event sponsors */}
             <section className="py-16 bg-gradient-to-b from-black to-purple-900/10">
@@ -1150,6 +1105,12 @@ export default function Home() {
           </motion.div>
         )}
       </AnimatePresence>
+
+      {/* Submission Form Modal */}
+      <SubmissionForm 
+        isOpen={isSubmissionFormOpen}
+        onClose={handleCloseSubmissionForm}
+      />
     </div>
   );
 }

@@ -1,4 +1,4 @@
-// File: C:\D Drive\Projects\IEE_RAS\Website\pixel-palettes-pls\src\app\pixelpalettes\judges\page.tsx
+// File: C:\D_Drive\Projects\IEE_RAS\Website\Versions\Round2\src\app\pixelpalettes\judges\page.tsx
 import * as entry from '../../../../../src/app/pixelpalettes/judges/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
