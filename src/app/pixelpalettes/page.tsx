@@ -758,7 +758,7 @@ export default function Home() {
                   <h2 className="font-pixel text-3xl md:text-5xl mb-6 neon-glow">QUALIFIED TEAMS</h2>
                   <div className="w-16 h-0.5 bg-gradient-to-r from-purple-500 to-cyan-500 mx-auto mb-4"></div>
                   <p className="font-mono-pixel text-lg text-gray-400 max-w-2xl mx-auto">
-                    Congratulations to the 42 teams that have qualified for Round 1 of Pixel Palettes!
+                    Congratulations to the 43 teams that have qualified for Round 1 of Pixel Palettes!
                   </p>
                 </motion.div>
 
@@ -771,7 +771,8 @@ export default function Home() {
                     'Defenders', 'The Heist Squad', 'CodeBlooded', 'Hack & Hue', 'Fortrix', 'CodeYogi',
                     'Pixies', 'Truth Trackers', 'Error_404!', 'Viraj Jadhav', 'Hotel California', 'AlgoSapiens',
                     'Cretaort', 'DB_killers', 'ERROR\'404\'', 'ashishmehtawork108', 'CodeSentry', 'Horizon Code Asylum',
-                    'Sky Sentinel', 'Justice', 'V Vanquishers', 'Sudo Wudo', 'Aditya Tiwari', 'Purrgrammers'
+                    'Sky Sentinel', 'Justice', 'V Vanquishers', 'Sudo Wudo', 'Aditya Tiwari', 'Purrgrammers',
+                    '2Enoughs'
                   ].map((teamName, index) => (
                     <motion.div
                       key={index}
