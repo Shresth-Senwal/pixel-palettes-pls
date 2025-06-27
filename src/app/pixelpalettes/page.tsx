@@ -766,7 +766,7 @@ export default function Home() {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                   {[
                     'Jems Labs', 'CookedCoders', 'CODE.IO', 'Crafting Lords', 'Uzumqki', 'The Silent Wheels',
-                    'Nemolly', 'Prisom Breakers', 'ScoopNSlap', 'AI-Luminati', 'ROOM 104', 'Pseudo Squad',
+                    'Nemolly', 'Prison Breakers', 'ScoopNSlap', 'AI-Luminati', 'ROOM 104', 'Pseudo Squad',
                     'CODERS', 'GPT-SQUAD', 'Bluds', 'Code Smashers', '17', 'byteMe',
                     'Defenders', 'The Heist Squad', 'CodeBlooded', 'Hack & Hue', 'Fortrix', 'CodeYogi',
                     'Pixies', 'Truth Trackers', 'Error_404!', 'Viraj Jadhav', 'Hotel California', 'AlgoSapiens',
