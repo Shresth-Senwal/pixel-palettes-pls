@@ -547,6 +547,10 @@
     margin-top: calc(var(--spacing) * 2);
   }
 
+  .mt-6 {
+    margin-top: calc(var(--spacing) * 6);
+  }
+
   .mt-8 {
     margin-top: calc(var(--spacing) * 8);
   }
@@ -1299,10 +1303,6 @@
     }
   }
 
-  .bg-green-500 {
-    background-color: var(--color-green-500);
-  }
-
   .bg-green-500\/10 {
     background-color: #00c7581a;
   }
@@ -1365,6 +1365,10 @@
     .bg-white\/10 {
       background-color: color-mix(in oklab, var(--color-white) 10%, transparent);
     }
+  }
+
+  .bg-yellow-500 {
+    background-color: var(--color-yellow-500);
   }
 
   .bg-gradient-to-b {

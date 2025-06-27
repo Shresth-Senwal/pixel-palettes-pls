@@ -698,8 +698,8 @@ export default function Home() {
               </div>
             </section>
 
-            {/* Qualified Teams Section - Round 1 Qualifiers */}
-            <section id="qualified-teams" className="py-24 bg-gradient-to-b from-black to-purple-900/10">
+            {/* Finalists Section - Final Round Teams */}
+            <section id="finalists" className="py-24 bg-gradient-to-b from-black to-purple-900/10">
               <div className="max-w-6xl mx-auto px-6">
                 {/* Section Header */}
                 <motion.div
@@ -708,24 +708,19 @@ export default function Home() {
                   transition={{ duration: 0.8 }}
                   className="text-center mb-16"
                 >
-                  <h2 className="font-pixel text-3xl md:text-5xl mb-6 neon-glow">QUALIFIED TEAMS</h2>
+                  <h2 className="font-pixel text-3xl md:text-5xl mb-6 neon-glow">FINALISTS</h2>
                   <div className="w-16 h-0.5 bg-gradient-to-r from-purple-500 to-cyan-500 mx-auto mb-4"></div>
                   <p className="font-mono-pixel text-lg text-gray-400 max-w-2xl mx-auto">
-                    Congratulations to the 44 teams that have successfully cleared Round 1 of Pixel Palettes!
+                    Congratulations to the 17 teams that have made it to the final round of Pixel Palettes!
                   </p>
                 </motion.div>
 
-                {/* Teams Grid - First 42 teams */}
+                {/* Teams Grid - Final 17 teams */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                   {[
-                    'Jems Labs', 'CookedCoders', 'CODE.IO', 'Crafting Lords', 'Uzumaki', 'The Silent Wheels',
-                    'Nemolly', 'Prison Breakers', 'ScoopNSlap', 'AI-Luminati', 'ROOM 104', 'Pseudo Squad',
-                    'CODERS', 'GPT-SQUAD', 'Bluds', 'Code Smashers', '17', 'byteMe',
-                    'Defenders', 'The Heist Squad', 'CodeBlooded', 'Hack & Hue', 'Fortrix', 'CodeYogi',
-                    'Pixies', 'Truth Trackers', 'Error_404!', 'Viraj Jadhav', 'Hotel California', 'AlgoSapiens',
-                    'Cretaort', 'DB_killers', 'ERROR\'404\'', 'ashishmehtawork108', 'CodeSentry', 'Horizon Code Asylum',
-                    'Sky Sentinel', 'Justice', 'V Vanquishers', 'Sudo Wudo', 'Aditya Tiwari', 'Purrgrammers',
-                    'PMMMT', '2Enoughs'
+                    'Prison Breakers', 'ScoopNSlap', 'PMMMT', 'Nemolly', 'Hack & Hue', 'Truth Trackers',
+                    'Defenders', 'byteMe', 'Bluds', 'Sky Sentinel', 'Aditya Tiwari', '17',
+                    'The Silent Wheels', 'Error_404!', 'Logic Lords', 'Team Fortrix', 'Sudo Wudo'
                   ].map((teamName, index) => (
                     <motion.div
                       key={index}
@@ -773,12 +768,12 @@ export default function Home() {
                       {/* Status Badge */}
                       <div className="inline-flex items-center px-3 py-1 rounded-full text-xs font-mono-pixel"
                            style={{
-                             background: 'linear-gradient(45deg, rgba(34, 197, 94, 0.1), rgba(34, 197, 94, 0.2))',
-                             border: '1px solid rgba(34, 197, 94, 0.3)',
-                             color: '#10b981'
+                             background: 'linear-gradient(45deg, rgba(234, 179, 8, 0.1), rgba(234, 179, 8, 0.2))',
+                             border: '1px solid rgba(234, 179, 8, 0.3)',
+                             color: '#eab308'
                            }}>
-                        <div className="w-2 h-2 rounded-full bg-green-500 mr-2 animate-pulse"></div>
-                        QUALIFIED
+                        <div className="w-2 h-2 rounded-full bg-yellow-500 mr-2 animate-pulse"></div>
+                        FINALIST
                       </div>
 
                       {/* Particle Effect */}
@@ -834,13 +829,13 @@ export default function Home() {
                     >
                       🎉
                     </motion.div>
-                    <h3 className="font-pixel text-xl md:text-2xl mb-4 text-cyan-400">
-                      ROUND 1 QUALIFIED
-                    </h3>
-                    <p className="font-mono-pixel text-base text-gray-400 leading-relaxed">
-                      These teams have successfully passed the initial screening and are now eligible to participate in the next phase of Pixel Palettes. 
-                      Get ready for the ultimate coding challenge!
-                    </p>
+                                                <h3 className="font-pixel text-xl md:text-2xl mb-4 text-cyan-400">
+                              FINAL ROUND
+                            </h3>
+                            <p className="font-mono-pixel text-base text-gray-400 leading-relaxed">
+                              These teams have made it to the final round of Pixel Palettes! 
+                              Get ready for the ultimate showdown where they&apos;ll compete for the grand prize!
+                            </p>
                   </div>
                 </motion.div>
               </div>
