@@ -86,11 +86,11 @@ const nextConfig: NextConfig = {
               "style-src 'self' 'unsafe-inline' fonts.googleapis.com",
               "img-src 'self' data: blob: https:",
               "font-src 'self' fonts.gstatic.com data:",
-              "connect-src 'self' https:",
+              "connect-src 'self' https: https://script.google.com https://script.googleusercontent.com *.googleusercontent.com",
               "media-src 'self' blob:",
-              "frame-src 'self'",
+              "frame-src 'self' https://script.google.com https://script.googleusercontent.com *.googleusercontent.com",
               "base-uri 'self'",
-              "form-action 'self'",
+              "form-action 'self' https://script.google.com https://script.googleusercontent.com *.googleusercontent.com",
               "frame-ancestors 'none'",
               "upgrade-insecure-requests"
             ].join('; ')
@@ -117,7 +117,11 @@ const nextConfig: NextConfig = {
               'camera=()',
               'microphone=()',
               'geolocation=()',
-              'interest-cohort=()'
+              'payment=()',
+              'usb=()',
+              'magnetometer=()',
+              'gyroscope=()',
+              'accelerometer=()'
             ].join(', ')
           },
           // Performance Headers
