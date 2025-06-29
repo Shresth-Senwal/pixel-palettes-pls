@@ -692,8 +692,8 @@ export default function Home() {
 
 
 
-            {/* Finalists Section - Final Round Teams */}
-            <section id="finalists" className="py-24 bg-gradient-to-b from-purple-900/10 to-black">
+            {/* Winners Section - Top 3 Winners */}
+            <section id="winners" className="py-24 bg-gradient-to-b from-purple-900/10 to-black">
               <div className="max-w-6xl mx-auto px-6">
                 {/* Section Header */}
                 <motion.div
@@ -702,101 +702,161 @@ export default function Home() {
                   transition={{ duration: 0.8 }}
                   className="text-center mb-16"
                 >
-                  <h2 className="font-pixel text-3xl md:text-5xl mb-6 neon-glow">FINALISTS</h2>
-                  <div className="w-16 h-0.5 bg-gradient-to-r from-purple-500 to-cyan-500 mx-auto mb-4"></div>
+                  <h2 className="font-pixel text-3xl md:text-5xl mb-6 neon-glow">WINNERS</h2>
+                  <div className="w-16 h-0.5 bg-gradient-to-r from-yellow-500 to-orange-500 mx-auto mb-4"></div>
                   <p className="font-mono-pixel text-lg text-gray-400 max-w-2xl mx-auto">
-                    Congratulations to the 17 teams that have made it to the final round of Pixel Palettes!
+                    Congratulations to the top 3 teams who dominated Pixel Palettes hackathon!
                   </p>
                 </motion.div>
 
-                {/* Teams Grid - Final 17 teams */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {/* Winners Podium - Top 3 teams with special styling */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
                   {[
-                    'Prison Breakers', 'ScoopNSlap', 'PMMMT', 'Nemolly', 'Hack & Hue', 'Truth Trackers',
-                    'Defenders', 'byteMe', 'Bluds', 'Sky Sentinel', 'Aditya Tiwari', '17',
-                    'The Silent Wheels', 'Error_404!', 'Logic Lords', 'Team Fortrix', 'Sudo Wudo'
-                  ].map((teamName, index) => (
+                    { 
+                      name: 'Silent wheels', 
+                      position: 1, 
+                      prize: '1st Place',
+                      emoji: '🥇',
+                      colors: {
+                        gradient: 'from-yellow-400 to-yellow-600',
+                        border: 'border-yellow-400/40',
+                        glow: 'rgba(234, 179, 8, 0.8)',
+                        text: 'text-yellow-400'
+                      }
+                    },
+                    { 
+                      name: 'Erorr 404', 
+                      position: 2, 
+                      prize: '2nd Place',
+                      emoji: '🥈',
+                      colors: {
+                        gradient: 'from-slate-200 to-slate-400',
+                        border: 'border-slate-300/50',
+                        glow: 'rgba(203, 213, 225, 0.8)',
+                        text: 'text-slate-200'
+                      }
+                    },
+                    { 
+                      name: 'Defenders', 
+                      position: 3, 
+                      prize: '3rd Place',
+                      emoji: '🥉',
+                      colors: {
+                        gradient: 'from-amber-600 to-amber-800',
+                        border: 'border-amber-500/50',
+                        glow: 'rgba(217, 119, 6, 0.8)',
+                        text: 'text-amber-500'
+                      }
+                    }
+                  ].map((winner, index) => (
                     <motion.div
-                      key={index}
+                      key={winner.position}
                       initial={{ opacity: 0, y: 30 }}
                       whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.6, delay: index * 0.05 }}
+                      transition={{ duration: 0.8, delay: index * 0.2 }}
+                      animate={{
+                        y: [0, -8, 0],
+                        transition: {
+                          duration: 3 + index * 0.5,
+                          repeat: Infinity,
+                          ease: "easeInOut"
+                        }
+                      }}
                       whileHover={{ 
                         scale: 1.05,
                         rotateY: 5,
+                        y: -12,
                         transition: { duration: 0.3 }
                       }}
-                      className="glass modern-card rounded-xl p-6 text-center relative overflow-hidden group"
+                      className="glass modern-card rounded-xl p-8 text-center relative overflow-hidden group"
                       style={{
-                        background: 'rgba(0, 0, 0, 0.4)',
+                        background: winner.position === 1 
+                          ? 'rgba(234, 179, 8, 0.1)' 
+                          : 'rgba(0, 0, 0, 0.4)',
                         backdropFilter: 'blur(12px)',
-                        border: '1px solid rgba(139, 92, 246, 0.2)',
-                        boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3)'
+                        border: `2px solid ${winner.colors.glow.replace('0.8', '0.4')}`,
+                        boxShadow: `0 0 40px ${winner.colors.glow.replace('0.8', '0.6')}, 0 0 80px ${winner.colors.glow.replace('0.8', '0.4')}, 0 0 120px ${winner.colors.glow.replace('0.8', '0.2')}, 0 8px 32px rgba(0, 0, 0, 0.3)`
                       }}
                     >
-                      {/* Team Number Badge */}
-                      <div className="absolute top-2 right-2 w-8 h-8 rounded-full bg-gradient-to-r from-purple-500 to-cyan-500 flex items-center justify-center">
-                        <span className="font-pixel text-xs text-white">{index + 1}</span>
+                      {/* Position Badge */}
+                      <div className={`absolute top-4 right-4 w-12 h-12 rounded-full bg-gradient-to-r ${winner.colors.gradient} flex items-center justify-center`}>
+                        <span className="font-pixel text-sm text-white font-bold">{winner.position}</span>
                       </div>
 
-                      {/* Glowing Border Effect on Hover */}
-                      <div className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                           style={{
-                             background: 'linear-gradient(45deg, #8B5CF6, #06B6D4, #EC4899, #8B5CF6)',
-                             mask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
-                             maskComposite: 'xor',
-                             WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
-                             WebkitMaskComposite: 'xor',
-                             padding: '1px'
-                           }}
-                      />
+                      {/* Winner Crown/Medal Animation */}
+                      <motion.div
+                        animate={{
+                          scale: [1, 1.1, 1],
+                          rotate: [0, 5, -5, 0],
+                        }}
+                        transition={{
+                          duration: 3,
+                          repeat: Infinity,
+                          ease: "easeInOut"
+                        }}
+                        className="text-6xl mb-6"
+                      >
+                        {winner.emoji}
+                      </motion.div>
 
                       {/* Team Name */}
-                      <h3 className="font-pixel text-base md:text-lg mb-4 text-white relative z-10"
+                      <h3 className={`font-pixel text-xl md:text-2xl mb-4 ${winner.colors.text} relative z-10`}
                           style={{
-                            textShadow: '0 0 15px rgba(139, 92, 246, 0.8)'
+                            textShadow: `0 0 20px ${winner.colors.glow}`
                           }}>
-                        {teamName}
+                        {winner.name}
                       </h3>
 
-                      {/* Status Badge */}
-                      <div className="inline-flex items-center px-3 py-1 rounded-full text-xs font-mono-pixel"
+                      {/* Prize Badge - Cyberpunk style */}
+                      <div className={`inline-flex items-center px-4 py-2 rounded-sm text-sm font-pixel ${winner.colors.text} border-2 ${winner.colors.border} mb-4`}
                            style={{
-                             background: 'linear-gradient(45deg, rgba(234, 179, 8, 0.1), rgba(234, 179, 8, 0.2))',
-                             border: '1px solid rgba(234, 179, 8, 0.3)',
-                             color: '#eab308'
+                             background: `linear-gradient(45deg, ${winner.colors.glow.replace('0.8', '0.05')}, ${winner.colors.glow.replace('0.8', '0.1')})`,
+                             textShadow: `0 0 10px ${winner.colors.glow}`,
+                             boxShadow: `0 0 20px ${winner.colors.glow.replace('0.8', '0.3')}`
                            }}>
-                        <div className="w-2 h-2 rounded-full bg-yellow-500 mr-2 animate-pulse"></div>
-                        FINALIST
+                        {winner.prize}
                       </div>
 
-                      {/* Particle Effect */}
+                      {/* Celebration Particles */}
                       <motion.div
                         className="absolute inset-0 pointer-events-none"
                         initial={{ opacity: 0 }}
                         whileHover={{ opacity: 1 }}
                         transition={{ duration: 0.3 }}
                       >
-                        {[...Array(3)].map((_, i) => (
+                        {[...Array(5)].map((_, i) => (
                           <motion.div
                             key={i}
-                            className="absolute w-1 h-1 bg-cyan-400 rounded-full"
+                            className={`absolute w-2 h-2 ${winner.colors.text.replace('text-', 'bg-')} rounded-full`}
                             style={{
-                              left: `${20 + i * 30}%`,
-                              top: `${30 + i * 20}%`,
+                              left: `${10 + i * 20}%`,
+                              top: `${20 + i * 15}%`,
                             }}
                             animate={{
-                              y: [0, -10, 0],
+                              y: [0, -15, 0],
                               opacity: [0, 1, 0],
+                              scale: [0.5, 1, 0.5],
                             }}
                             transition={{
-                              duration: 2,
+                              duration: 2.5,
                               repeat: Infinity,
-                              delay: i * 0.2,
+                              delay: i * 0.3,
                             }}
                           />
                         ))}
                       </motion.div>
+
+                      {/* Glowing Border Effect on Hover */}
+                      <div className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                           style={{
+                             background: `linear-gradient(45deg, ${winner.colors.glow}, #8B5CF6, ${winner.colors.glow})`,
+                             mask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
+                             maskComposite: 'xor',
+                             WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
+                             WebkitMaskComposite: 'xor',
+                             padding: '2px'
+                           }}
+                      />
                     </motion.div>
                   ))}
                 </div>
@@ -805,31 +865,33 @@ export default function Home() {
                 <motion.div
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.5 }}
+                  transition={{ duration: 0.8, delay: 0.8 }}
                   className="text-center mt-16"
                 >
                   <div className="glass modern-card rounded-2xl p-8 max-w-2xl mx-auto">
                     <motion.div
                       animate={{
-                        scale: [1, 1.05, 1],
-                        rotate: [0, 1, -1, 0],
+                        scale: [1, 1.1, 1],
+                        rotate: [0, 2, -2, 0],
                       }}
                       transition={{
                         duration: 4,
                         repeat: Infinity,
                         ease: "easeInOut"
                       }}
-                      className="text-4xl mb-4"
+                      className="text-6xl mb-6 flex justify-center space-x-2"
                     >
-                      🎉
+                      <span>🎊</span>
+                      <span>🏆</span>
+                      <span>🎊</span>
                     </motion.div>
-                                                <h3 className="font-pixel text-xl md:text-2xl mb-4 text-cyan-400">
-                              FINAL ROUND
-                            </h3>
-                            <p className="font-mono-pixel text-base text-gray-400 leading-relaxed">
-                              These teams have made it to the final round of Pixel Palettes! 
-                              Get ready for the ultimate showdown where they&apos;ll compete for the grand prize!
-                            </p>
+                    <h3 className="font-pixel text-xl md:text-2xl mb-4 text-yellow-400">
+                      HACKATHON COMPLETE
+                    </h3>
+                    <p className="font-mono-pixel text-base text-gray-400 leading-relaxed">
+                      Thank you to all participants who made Pixel Palettes an incredible success! 
+                      These champions have showcased exceptional creativity and technical excellence in their AI-powered solutions.
+                    </p>
                   </div>
                 </motion.div>
               </div>
