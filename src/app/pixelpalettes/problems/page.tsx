@@ -168,7 +168,7 @@ export default function ProblemsPage() {
                     transition={{ duration: 0.3, ease: 'easeInOut' }}
                     className="overflow-hidden"
                   >
-                    <div className="px-6 pb-6">
+                    <div className="px-6 py-6">
                       <div className="space-y-4">
                         {domain.problems.map((problem, problemIndex) => (
                           <motion.div
