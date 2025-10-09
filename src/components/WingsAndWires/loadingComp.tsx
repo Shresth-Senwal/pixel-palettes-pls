@@ -1,9 +1,8 @@
 "use client"
 import { motion, AnimatePresence } from 'framer-motion';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 function Loading() {
-    const [isLoading, setIsLoading] = useState(true);
-    const [mounted, setMounted] = useState(false);
+    const [isLoading] = useState(true);
 
     /**
  * Framer Motion animation variants for loading screen container

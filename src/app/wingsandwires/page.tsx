@@ -689,7 +689,7 @@ export default function Home() {
                       </div>
                       <h3 className="font-pixel text-base mb-4 text-green-400">LEARNINGS</h3>
                       <p className="font-mono-pixel text-base text-gray-400 leading-relaxed">
-                        Explore drone technology's science and engineering from a theoretical perspective.
+                        Explore drone technology&apos;s science and engineering from a theoretical perspective.
                       </p>
                     </div>
                   </motion.div>

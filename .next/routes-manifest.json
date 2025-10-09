@@ -31,7 +31,7 @@
       "headers": [
         {
           "key": "Content-Security-Policy",
-          "value": "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' blob:; style-src 'self' 'unsafe-inline' fonts.googleapis.com; img-src 'self' data: blob: https:; font-src 'self' fonts.gstatic.com data:; connect-src 'self' https:; media-src 'self' blob:; frame-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests"
+          "value": "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' blob:; style-src 'self' 'unsafe-inline' fonts.googleapis.com; img-src 'self' data: blob: https:; font-src 'self' fonts.gstatic.com data:; connect-src 'self' https: https://script.google.com https://script.googleusercontent.com *.googleusercontent.com; media-src 'self' blob:; frame-src 'self' https://script.google.com https://script.googleusercontent.com *.googleusercontent.com; base-uri 'self'; form-action 'self' https://script.google.com https://script.googleusercontent.com *.googleusercontent.com; frame-ancestors 'none'; upgrade-insecure-requests"
         },
         {
           "key": "Strict-Transport-Security",
@@ -51,7 +51,7 @@
         },
         {
           "key": "Permissions-Policy",
-          "value": "camera=(), microphone=(), geolocation=(), interest-cohort=()"
+          "value": "camera=(), microphone=(), geolocation=(), payment=(), usb=(), magnetometer=(), gyroscope=(), accelerometer=()"
         },
         {
           "key": "X-DNS-Prefetch-Control",
@@ -114,6 +114,18 @@
       "regex": "^/pixelpalettes/sponsors(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/pixelpalettes/sponsors(?:/)?$"
+    },
+    {
+      "page": "/wingsandwires",
+      "regex": "^/wingsandwires(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/wingsandwires(?:/)?$"
+    },
+    {
+      "page": "/wingsandwires/resources",
+      "regex": "^/wingsandwires/resources(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/wingsandwires/resources(?:/)?$"
     }
   ],
   "dataRoutes": [],

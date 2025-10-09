@@ -1,35 +1,6 @@
 {
   "version": 4,
   "routes": {
-    "/favicon.ico": {
-      "initialHeaders": {
-        "cache-control": "public, max-age=0, must-revalidate",
-        "content-type": "image/x-icon",
-        "x-next-cache-tags": "_N_T_/layout,_N_T_/favicon.ico/layout,_N_T_/favicon.ico/route,_N_T_/favicon.ico/"
-      },
-      "experimentalBypassFor": [
-        {
-          "type": "header",
-          "key": "Next-Action"
-        },
-        {
-          "type": "header",
-          "key": "content-type",
-          "value": "multipart/form-data;.*"
-        }
-      ],
-      "initialRevalidateSeconds": false,
-      "srcRoute": "/favicon.ico",
-      "dataRoute": null,
-      "allowHeader": [
-        "host",
-        "x-matched-path",
-        "x-prerender-revalidate",
-        "x-prerender-revalidate-if-generated",
-        "x-next-revalidated-tags",
-        "x-next-revalidate-tag-token"
-      ]
-    },
     "/pixelpalettes/sponsors": {
       "experimentalBypassFor": [
         {
@@ -45,6 +16,54 @@
       "initialRevalidateSeconds": false,
       "srcRoute": "/pixelpalettes/sponsors",
       "dataRoute": "/pixelpalettes/sponsors.rsc",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/wingsandwires": {
+      "experimentalBypassFor": [
+        {
+          "type": "header",
+          "key": "Next-Action"
+        },
+        {
+          "type": "header",
+          "key": "content-type",
+          "value": "multipart/form-data;.*"
+        }
+      ],
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/wingsandwires",
+      "dataRoute": "/wingsandwires.rsc",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/wingsandwires/resources": {
+      "experimentalBypassFor": [
+        {
+          "type": "header",
+          "key": "Next-Action"
+        },
+        {
+          "type": "header",
+          "key": "content-type",
+          "value": "multipart/form-data;.*"
+        }
+      ],
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/wingsandwires/resources",
+      "dataRoute": "/wingsandwires/resources.rsc",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -78,7 +97,7 @@
         "x-next-revalidate-tag-token"
       ]
     },
-    "/pixelpalettes": {
+    "/pixelpalettes/problems": {
       "experimentalBypassFor": [
         {
           "type": "header",
@@ -91,8 +110,8 @@
         }
       ],
       "initialRevalidateSeconds": false,
-      "srcRoute": "/pixelpalettes",
-      "dataRoute": "/pixelpalettes.rsc",
+      "srcRoute": "/pixelpalettes/problems",
+      "dataRoute": "/pixelpalettes/problems.rsc",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -126,7 +145,12 @@
         "x-next-revalidate-tag-token"
       ]
     },
-    "/pixelpalettes/problems": {
+    "/favicon.ico": {
+      "initialHeaders": {
+        "cache-control": "public, max-age=0, must-revalidate",
+        "content-type": "image/x-icon",
+        "x-next-cache-tags": "_N_T_/layout,_N_T_/favicon.ico/layout,_N_T_/favicon.ico/route,_N_T_/favicon.ico/"
+      },
       "experimentalBypassFor": [
         {
           "type": "header",
@@ -139,8 +163,32 @@
         }
       ],
       "initialRevalidateSeconds": false,
-      "srcRoute": "/pixelpalettes/problems",
-      "dataRoute": "/pixelpalettes/problems.rsc",
+      "srcRoute": "/favicon.ico",
+      "dataRoute": null,
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/pixelpalettes": {
+      "experimentalBypassFor": [
+        {
+          "type": "header",
+          "key": "Next-Action"
+        },
+        {
+          "type": "header",
+          "key": "content-type",
+          "value": "multipart/form-data;.*"
+        }
+      ],
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/pixelpalettes",
+      "dataRoute": "/pixelpalettes.rsc",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -154,8 +202,8 @@
   "dynamicRoutes": {},
   "notFoundRoutes": [],
   "preview": {
-    "previewModeId": "54daf5884e719fa2bb8a31b2f7c63595",
-    "previewModeSigningKey": "0bab4bc1e4e029d8c784d0d2f1313dcfd84b3aee7e34bae9f53e4390f43e8581",
-    "previewModeEncryptionKey": "ef8b919749ead8489d737762ae1a747ca74fb93416e243d30eda5e7c57a07d72"
+    "previewModeId": "635cf548958f35f9400e959cac7857dd",
+    "previewModeSigningKey": "d0030d3c2a4e120b386c033445540050b634e98d84407fac1f134f8560977fb0",
+    "previewModeEncryptionKey": "667138daf26cc65e76bbd3abae0f49e22a483d0f98fc0fab22962727e59a755f"
   }
 }

@@ -1,57 +1,75 @@
 {
   "pages": {
     "/_not-found/page": [
-      "static/chunks/webpack-80cae2cb5e39be53.js",
-      "static/chunks/vendors-5bb245f173d6e9c5.js",
-      "static/chunks/main-app-15ba251fdd9cb554.js",
+      "static/chunks/webpack-a1e03fd6ab187d08.js",
+      "static/chunks/vendors-0baaac599ea2f0c8.js",
+      "static/chunks/main-app-5b94a5a144a39747.js",
       "static/chunks/app/_not-found/page-5b32ea9a562fa27b.js"
     ],
     "/layout": [
-      "static/chunks/webpack-80cae2cb5e39be53.js",
-      "static/chunks/vendors-5bb245f173d6e9c5.js",
-      "static/chunks/main-app-15ba251fdd9cb554.js",
-      "static/css/865fb86a088cbf75.css",
-      "static/chunks/app/layout-2c3a4ad4f13d85b0.js"
-    ],
-    "/page": [
-      "static/chunks/webpack-80cae2cb5e39be53.js",
-      "static/chunks/vendors-5bb245f173d6e9c5.js",
-      "static/chunks/main-app-15ba251fdd9cb554.js",
-      "static/chunks/framer-motion-3eda6080e310ba0a.js",
-      "static/chunks/lucide-react-b94e38889299bc96.js",
-      "static/chunks/app/page-acdadec719a64224.js"
-    ],
-    "/pixelpalettes/problems/page": [
-      "static/chunks/webpack-80cae2cb5e39be53.js",
-      "static/chunks/vendors-5bb245f173d6e9c5.js",
-      "static/chunks/main-app-15ba251fdd9cb554.js",
-      "static/chunks/framer-motion-3eda6080e310ba0a.js",
-      "static/chunks/lucide-react-b94e38889299bc96.js",
-      "static/chunks/app/pixelpalettes/problems/page-0ecf5ee7f2ac1e88.js"
+      "static/chunks/webpack-a1e03fd6ab187d08.js",
+      "static/chunks/vendors-0baaac599ea2f0c8.js",
+      "static/chunks/main-app-5b94a5a144a39747.js",
+      "static/css/64bde08dca3a6d6d.css",
+      "static/chunks/app/layout-ab499f5fd44eeabf.js"
     ],
     "/pixelpalettes/judges/page": [
-      "static/chunks/webpack-80cae2cb5e39be53.js",
-      "static/chunks/vendors-5bb245f173d6e9c5.js",
-      "static/chunks/main-app-15ba251fdd9cb554.js",
+      "static/chunks/webpack-a1e03fd6ab187d08.js",
+      "static/chunks/vendors-0baaac599ea2f0c8.js",
+      "static/chunks/main-app-5b94a5a144a39747.js",
       "static/chunks/framer-motion-3eda6080e310ba0a.js",
-      "static/chunks/lucide-react-b94e38889299bc96.js",
-      "static/chunks/app/pixelpalettes/judges/page-6d143da834da8350.js"
+      "static/chunks/lucide-react-e6197912108e8aa8.js",
+      "static/chunks/app/pixelpalettes/judges/page-1e08194bbafd778b.js"
+    ],
+    "/wingsandwires/page": [
+      "static/chunks/webpack-a1e03fd6ab187d08.js",
+      "static/chunks/vendors-0baaac599ea2f0c8.js",
+      "static/chunks/main-app-5b94a5a144a39747.js",
+      "static/chunks/framer-motion-3eda6080e310ba0a.js",
+      "static/chunks/lucide-react-e6197912108e8aa8.js",
+      "static/chunks/462-8bf961d90c8008f0.js",
+      "static/chunks/app/wingsandwires/page-25615603f3c38416.js"
     ],
     "/pixelpalettes/page": [
-      "static/chunks/webpack-80cae2cb5e39be53.js",
-      "static/chunks/vendors-5bb245f173d6e9c5.js",
-      "static/chunks/main-app-15ba251fdd9cb554.js",
+      "static/chunks/webpack-a1e03fd6ab187d08.js",
+      "static/chunks/vendors-0baaac599ea2f0c8.js",
+      "static/chunks/main-app-5b94a5a144a39747.js",
       "static/chunks/framer-motion-3eda6080e310ba0a.js",
-      "static/chunks/lucide-react-b94e38889299bc96.js",
-      "static/chunks/app/pixelpalettes/page-dac97c0b684b4e29.js"
+      "static/chunks/lucide-react-e6197912108e8aa8.js",
+      "static/chunks/app/pixelpalettes/page-3bdf1607408bcf82.js"
     ],
     "/pixelpalettes/sponsors/page": [
-      "static/chunks/webpack-80cae2cb5e39be53.js",
-      "static/chunks/vendors-5bb245f173d6e9c5.js",
-      "static/chunks/main-app-15ba251fdd9cb554.js",
+      "static/chunks/webpack-a1e03fd6ab187d08.js",
+      "static/chunks/vendors-0baaac599ea2f0c8.js",
+      "static/chunks/main-app-5b94a5a144a39747.js",
       "static/chunks/framer-motion-3eda6080e310ba0a.js",
-      "static/chunks/lucide-react-b94e38889299bc96.js",
-      "static/chunks/app/pixelpalettes/sponsors/page-d0613edfe26fa359.js"
+      "static/chunks/lucide-react-e6197912108e8aa8.js",
+      "static/chunks/app/pixelpalettes/sponsors/page-048ce5dbefcedbc9.js"
+    ],
+    "/pixelpalettes/problems/page": [
+      "static/chunks/webpack-a1e03fd6ab187d08.js",
+      "static/chunks/vendors-0baaac599ea2f0c8.js",
+      "static/chunks/main-app-5b94a5a144a39747.js",
+      "static/chunks/framer-motion-3eda6080e310ba0a.js",
+      "static/chunks/lucide-react-e6197912108e8aa8.js",
+      "static/chunks/app/pixelpalettes/problems/page-eddad41f2ce06e00.js"
+    ],
+    "/page": [
+      "static/chunks/webpack-a1e03fd6ab187d08.js",
+      "static/chunks/vendors-0baaac599ea2f0c8.js",
+      "static/chunks/main-app-5b94a5a144a39747.js",
+      "static/chunks/framer-motion-3eda6080e310ba0a.js",
+      "static/chunks/lucide-react-e6197912108e8aa8.js",
+      "static/chunks/app/page-3656739b27f98ec3.js"
+    ],
+    "/wingsandwires/resources/page": [
+      "static/chunks/webpack-a1e03fd6ab187d08.js",
+      "static/chunks/vendors-0baaac599ea2f0c8.js",
+      "static/chunks/main-app-5b94a5a144a39747.js",
+      "static/chunks/framer-motion-3eda6080e310ba0a.js",
+      "static/chunks/lucide-react-e6197912108e8aa8.js",
+      "static/chunks/462-8bf961d90c8008f0.js",
+      "static/chunks/app/wingsandwires/resources/page-6280304bf20bd635.js"
     ]
   }
 }
