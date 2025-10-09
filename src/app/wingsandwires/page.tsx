@@ -1065,7 +1065,7 @@ export default function Home() {
                   </motion.a>*/}
                 </motion.div>
 
-                {/* View All Sponsors Link */}
+                {/* View All Resources Link */}
                 <motion.div
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
@@ -1073,10 +1073,10 @@ export default function Home() {
                   className="text-center mt-10"
                 >
                   <Link
-                    href="/wingsandwires/sponsors"
-                    className="font-mono-pixel text-sm text-gray-400 hover:text-purple-400 transition-colors inline-flex items-center space-x-2 group"
+                    href="/wingsandwires/resources"
+                    className="font-mono-pixel text-md text-gray-400 hover:text-purple-400 transition-colors inline-flex items-center space-x-2 group"
                   >
-                    <span>View All Sponsors</span>
+                    <span>View All Resources</span>
                     <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
                   </Link>
                 </motion.div>
