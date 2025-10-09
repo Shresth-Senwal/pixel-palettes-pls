@@ -24,7 +24,7 @@
 import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import { allEvents } from 'data/eventsData';
-import TechnoVisionPreview from '@/components/technoVision3.0/TechnoVisionPreview';
+import WingsAndWiresPreview from '@/components/WingsAndWires/WingsAndWiresPreview';
 // Next.js components for routing and image optimization
 import Link from 'next/link';
 import Image from 'next/image';
@@ -246,13 +246,7 @@ export default function HomePage() {
           className="absolute bottom-20 left-1/3 w-40 h-40 bg-blue-500/10 rounded-full blur-xl"
         />
       </div>
-
-
-      
         <Navbar/>
-
-
-
       {/* ========================================
                 NAVIGATION BAR
                 ======================================== */}
@@ -694,9 +688,9 @@ export default function HomePage() {
                         speed={1}
                       />
                     </div>
-                  ) : event.title === "Techno Vision 3.0" ? (
+                  ) : event.title === "Wings And Wires" ? (
                     <div className="flex justify-center mb-6">
-                      <TechnoVisionPreview
+                      <WingsAndWiresPreview
                         size={80}
                         className="opacity-90"
                         speed={1}

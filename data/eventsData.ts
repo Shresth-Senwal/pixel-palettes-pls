@@ -7,13 +7,21 @@ const eventsData = {
       href: "/pixelpalettes",
       status: "scheduled",
     },
-    {
+    /*{
       id: "2a",
       title: "Techno Vision 3.0",
       description: "24-hour AI-powered ideathon featuring cutting-edge challenges and expert mentorship.",
       href: "/technovision",
       status: "scheduled",
+    },*/
+    {
+      id: "2a",
+      title: "Wings And Wires",
+      description: "24-hour AI-powered hackathon featuring cutting-edge challenges and expert mentorship.",
+      href: "/wingsandwires",
+      status: "scheduled",
     },
+
   ],
   upcoming: [
     {

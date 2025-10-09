@@ -4,9 +4,9 @@ import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 
 /**
- * Props interface for the TechnoVisionPreview component
+ * Props interface for the WingsAndWiresPreview component
  */
-interface TechnoVisionPreviewProps {
+interface WingsAndWiresPreviewProps {
   /** Size of the animation container in pixels (default: 80) */
   size?: number;
   /** Additional CSS classes to apply to the container */
@@ -16,15 +16,15 @@ interface TechnoVisionPreviewProps {
 }
 
 /**
- * TechnoVisionPreview Component
+ * WingsAndWiresPreview Component
  * * Renders an authentic loading animation with a synthwave color palette
  * inspired by the provided reference image.
  */
-export default function TechnoVisionPreview({
+export default function WingsAndWiresPreview({
   size = 80,
   className = '',
   speed = 1
-}: TechnoVisionPreviewProps) {
+}: WingsAndWiresPreviewProps) {
   /**
    * Component mount state for hydration safety
    */
@@ -106,9 +106,9 @@ export default function TechnoVisionPreview({
       <div className="absolute inset-0 flex flex-col items-center justify-center">
         
         <div className="flex flex-col items-center justify-center space-y-0.5 mb-2">
-          {/* TECHNO Text - Changed to Purple */}
+          {/* WINGS & Text - Changed to Purple */}
           <div className="flex items-center justify-center space-x-0.5">
-            {"TECHNO".split("").map((letter, i) => (
+            {"WINGS &".split("").map((letter, i) => (
               <motion.span
                 key={`pixel-${i}`} custom={i} variants={letterVariants} initial="initial" animate="animate"
                 className="inline-block text-purple-400 font-bold" // Changed from text-fuchsia-400
@@ -123,9 +123,9 @@ export default function TechnoVisionPreview({
             ))}
           </div>
           
-          {/* VISION Text - Changed to Violet */}
+          {/* WIRES Text - Changed to Violet */}
           <div className="flex items-center justify-center space-x-0.5">
-            {"VISION".split("").map((letter, i) => (
+            {"WIRES".split("").map((letter, i) => (
               <motion.span
                 key={`palettes-${i}`} custom={i + 5} variants={letterVariants} initial="initial" animate="animate"
                 className="inline-block text-violet-400 font-bold" // Changed from text-orange-400
@@ -206,7 +206,7 @@ export default function TechnoVisionPreview({
           className="text-center"
         >
           <div className="text-gray-300 font-bold tracking-wider" style={{ fontSize: size * 0.055, fontFamily: 'monospace', textShadow: `0 0 ${size * 0.02}px rgba(255, 255, 255, 0.5)`}}>INITIALIZING</div>
-          <div className="text-gray-400 tracking-wide" style={{ fontSize: size * 0.045, fontFamily: 'monospace' }}>IDEATHON</div>
+          <div className="text-gray-400 tracking-wide" style={{ fontSize: size * 0.045, fontFamily: 'monospace' }}>WORKSHOP</div>
         </motion.div>
       </div>
 

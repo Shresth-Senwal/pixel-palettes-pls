@@ -2,66 +2,18 @@
 
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
-import { Calendar, MapPin, Trophy, Clock, ArrowRight, Zap, Info } from 'lucide-react';
+import { Calendar, MapPin, GraduationCap, Clock, ArrowRight, Zap } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { CosmicBackgroundDesktop, CosmicBackgroundMobile } from '@/components/technoVision3.0/CosmicBackground';
+import { CosmicBackgroundDesktop, CosmicBackgroundMobile } from '@/components/WingsAndWires/CosmicBackground';
 
-/**
- * Pixel Palettes Event Page Component
- * 
- * This component represents the main event page for the "Pixel Palettes" 24-hour 
- * AI-powered hackathon. It features a retro-futuristic cyberpunk design with 
- * advanced animations and interactive elements.
- * 
- * Key Features:
- * - One-time loading animation with retro aesthetic
- * - Session storage to track visits and skip loading on return
- * - Complex Framer Motion animations with staggered reveals
- * - Interactive prize tooltip with animated appearance
- * - External registration integration via Google Forms
- * - Responsive design with glassmorphism effects
- * - Cyberpunk-themed visual elements (glitch effects, neon glows)
- * - Comprehensive event information sections
- * 
- * Sections:
- * - Hero section with event branding and key details
- * - About section explaining the hackathon concept
- * - Schedule timeline with 24-hour event progression
- * - Registration section with event details and CTA
- * - Sponsors showcase with external links
- * - Minimal footer with logo
- * 
- * @returns {JSX.Element} Complete Pixel Palettes event page
- */
 export default function Home() {
-  /**
-   * State to track component mount status for hydration safety
-   * Prevents SSR/CSR mismatch in Next.js applications
-   */
+
   const [mounted, setMounted] = useState(false);
 
-  /**
-   * State to control loading screen visibility
-   * Starts as true to show loading animation initially
-   */
   const [isLoading, setIsLoading] = useState(true);
 
-  /**
-   * State to control prize tooltip visibility on hover
-   * Used for the interactive prize amount explanation
-   */
-  const [showPrizeTooltip, setShowPrizeTooltip] = useState(false);
-
-  /**
-   * Mobile menu visibility state
-   * Controls whether the mobile navigation menu is open or closed
-   */
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-
-
-
 
   /**
    * Debug function to reset loading animation for testing
@@ -96,7 +48,7 @@ export default function Home() {
       const isPageRefresh = navigationEntry?.type === 'reload';
 
       // Show loading animation if:
-      // 1. First time visiting Pixel Palettes in this session (no session flag)
+      // 1. First time visiting Wings And Wires in this session (no session flag)
       // 2. Page was refreshed (user pressed F5 or refresh button)
       // This includes navigation from main website "Learn More" button
       if (!hasLoadedPixelPalettes || isPageRefresh) {
@@ -144,12 +96,8 @@ export default function Home() {
     }
   }, [isMobileMenuOpen]);
 
-
-
   // Prevent rendering until component is mounted (avoids hydration mismatch)
   if (!mounted) return null;
-
-
 
   /**
    * Framer Motion animation variants for loading screen container
@@ -319,7 +267,7 @@ export default function Home() {
             <div className="relative z-10 text-center mb-8">
               {/* PIXEL text in purple */}
               <div className="flex flex-wrap justify-center items-center gap-1 sm:gap-2 md:gap-3 mb-4">
-                {"TECHNO".split("").map((letter, i) => (
+                {"WINGS AND".split("").map((letter, i) => (
                   <motion.span
                     key={`pixel-${i}`}
                     custom={i}
@@ -340,7 +288,7 @@ export default function Home() {
 
               {/* PALETTES text in cyan */}
               <div className="flex flex-wrap justify-center items-center gap-1 sm:gap-2 md:gap-3">
-                {"VISION".split("").map((letter, i) => (
+                {"WIRES".split("").map((letter, i) => (
                   <motion.span
                     key={`palettes-${i}`}
                     custom={i + 5} // Offset delay to appear after PIXEL
@@ -425,7 +373,7 @@ export default function Home() {
                   ease: "easeInOut"
                 }}
               >
-                INITIALIZING IDEATHON
+                INITIALIZING WORKSHOP
               </motion.div>
 
               <motion.div
@@ -504,8 +452,7 @@ export default function Home() {
                   {/* Desktop Navigation Menu - Hidden on mobile */}
                   <div className="hidden md:flex space-x-8">
                     <a href="#about" className="text-xl hover:text-purple-400 transition-colors font-mono-pixel">About</a>
-                    <Link href="/technovision/problems" className="text-xl hover:text-purple-400 transition-colors font-mono-pixel">Problems</Link>
-                    <Link href="/technovision/sponsors" className="text-xl hover:text-purple-400 transition-colors font-mono-pixel">Sponsors</Link>
+                    <Link href="/wingsandwires/resources" className="text-xl hover:text-purple-400 transition-colors font-mono-pixel">Resources</Link>
                   </div>
 
                   {/* Mobile Menu Button */}
@@ -553,24 +500,11 @@ export default function Home() {
                         whileTap={{ scale: 0.95 }}
                       >
                         <Link
-                          href="/pixelpalettes/problems"
+                          href="/wingsandwires/resources"
                           className="block px-4 py-3 text-lg font-mono-pixel text-gray-300 hover:text-purple-400 transition-colors duration-300 border-b border-gray-800/30"
                           onClick={() => setIsMobileMenuOpen(false)}
                         >
-                          Problems
-                        </Link>
-                      </motion.div>
-
-                      <motion.div
-                        whileHover={{ x: 5 }}
-                        whileTap={{ scale: 0.95 }}
-                      >
-                        <Link
-                          href="/pixelpalettes/sponsors"
-                          className="block px-4 py-3 text-lg font-mono-pixel text-gray-300 hover:text-purple-400 transition-colors duration-300"
-                          onClick={() => setIsMobileMenuOpen(false)}
-                        >
-                          Sponsors
+                          Resources
                         </Link>
                       </motion.div>
                     </div>
@@ -592,12 +526,12 @@ export default function Home() {
                   {/* Main Event Title - Glitch effect with neon glow */}
                   <motion.h1
                     className="glitch font-pixel text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl mb-8 neon-glow text-center break-words"
-                    data-text="TECHNO VISION" // Used for CSS glitch effect
+                    data-text="WINGS AND WIRES" // Used for CSS glitch effect
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 1, delay: 0.2 }}
                   >
-                    TECHNO VISION
+                    WINGS AND WIRES
                   </motion.h1>
 
                   {/* Event Tagline */}
@@ -607,7 +541,7 @@ export default function Home() {
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.6, duration: 0.8 }}
                   >
-                    24-Hour Ideathon
+                    Robotics Workshop
                   </motion.p>
 
                   {/* Event Description */}
@@ -623,7 +557,7 @@ export default function Home() {
 
                 {/* Event Details Cards - Date, Venue, and Prizes */}
                 <motion.div
-                  className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 max-w-4xl mx-auto"
+                  className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12 max-w-4xl mx-auto"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 1, duration: 0.8 }}
@@ -632,22 +566,22 @@ export default function Home() {
                   <div className="glass modern-card rounded-2xl p-6 text-center">
                     <Calendar className="text-pink-400 mx-auto mb-3" size={28} />
                     <div className="font-pixel text-sm mb-1 text-pink-400">DATE</div>
-                    <div className="font-mono-pixel text-xl">27-28 JUNE</div>
+                    <div className="font-mono-pixel text-xl">10TH OCT</div>
                   </div>
 
                   {/* Venue Card */}
                   <div className="glass modern-card rounded-2xl p-6 text-center">
                     <MapPin className="text-cyan-400 mx-auto mb-3" size={28} />
                     <div className="font-pixel text-sm mb-1 text-cyan-400">VENUE</div>
-                    <div className="font-mono-pixel text-xl">ONLINE</div>
+                    <div className="font-mono-pixel text-xl">307 AB1</div>
                   </div>
 
                   {/* Prizes Card with Interactive Tooltip */}
-                  <div className="glass modern-card rounded-2xl p-6 text-center relative">
+                  {/*<div className="glass modern-card rounded-2xl p-6 text-center relative">
                     <Trophy className="text-yellow-400 mx-auto mb-3" size={28} />
                     <div className="font-pixel text-sm mb-1 text-yellow-400">PRIZES</div>
                     {/* Prize Amount with Pulsing Glow Animation */}
-                    <motion.div
+                  {/*<motion.div
                       className="font-mono-pixel text-xl flex items-center justify-center space-x-2"
                       whileHover={{ scale: 1.05 }}
                       animate={{
@@ -663,7 +597,7 @@ export default function Home() {
                     >
                       <span>₹15,000*</span>
                       {/* Info Icon for Tooltip Trigger */}
-                      <button
+                  {/*<button
                         onMouseEnter={() => setShowPrizeTooltip(true)}
                         onMouseLeave={() => setShowPrizeTooltip(false)}
                         className="text-yellow-400/60 hover:text-yellow-400 transition-colors"
@@ -673,7 +607,7 @@ export default function Home() {
                     </motion.div>
 
                     {/* Prize Tooltip - Animated explanation */}
-                    <AnimatePresence>
+                  {/*<AnimatePresence>
                       {showPrizeTooltip && (
                         <motion.div
                           initial={{ opacity: 0, y: 10, scale: 0.9 }}
@@ -683,11 +617,11 @@ export default function Home() {
                         >
                           *Exact prize split and rewards to be announced
                           {/* Tooltip Arrow */}
-                          <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-white/10"></div>
+                  {/*<div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-white/10"></div>
                         </motion.div>
                       )}
                     </AnimatePresence>
-                  </div>
+                  </div>*/}
                 </motion.div>
 
 
@@ -707,9 +641,7 @@ export default function Home() {
                   <h2 className="font-pixel text-3xl md:text-5xl mb-6 neon-glow">ABOUT</h2>
                   <div className="w-16 h-0.5 bg-gradient-to-r from-purple-500 to-cyan-500 mx-auto mb-8"></div>
                   <p className="font-mono-pixel text-xl md:text-2xl leading-relaxed text-gray-300 max-w-4xl mx-auto">
-                    Pixel Palettes is a creatively charged, AI-driven 24-hour hackathon that perfectly blends
-                    technology and design. Whether you&apos;re a seasoned developer, a design enthusiast, or an AI curious mind,
-                    this hackathon offers the perfect platform to showcase your skills.
+                    &apos;Wings and Wires&apos; is an educational workshop designed to introduce participants to the fundamentals of drone technology, focusing on theoretical knowledge about the working, components, and principles behind unmanned aerial vehicles (UAVs).
                   </p>
                 </motion.div>
 
@@ -717,48 +649,57 @@ export default function Home() {
                 <motion.div
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.2 }}
-                  className="grid grid-cols-1 md:grid-cols-3 gap-8"
+                  transition={{ duration: 0.8 }}
+                  className="text-center"
                 >
-                  {/* Innovate Feature */}
-                  <div className="glass modern-card rounded-2xl p-8 text-center">
-                    <div className="w-16 h-16 bg-gradient-to-br from-pink-500/20 to-purple-500/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                      <Zap className="text-pink-400" size={36} />
+                  <h2 className="font-pixel text-3xl md:text-5xl mb-6 neon-glow">AIM</h2>
+                  <div className="w-16 h-0.5 bg-gradient-to-r from-purple-500 to-cyan-500 mx-auto mb-8"></div>
+                  <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.2 }}
+                    className="grid grid-cols-1 md:grid-cols-3 gap-8"
+                  >
+                    {/* Innovate Feature */}
+                    <div className="glass modern-card rounded-2xl p-8 text-center">
+                      <div className="w-16 h-16 bg-gradient-to-br from-pink-500/20 to-purple-500/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <Zap className="text-pink-400" size={36} />
+                      </div>
+                      <h3 className="font-pixel text-base mb-4 text-pink-400">INNOVATE</h3>
+                      <p className="font-mono-pixel text-base text-gray-400 leading-relaxed">
+                        Understand drone components, how they interact, and achieve flight control.
+                      </p>
                     </div>
-                    <h3 className="font-pixel text-base mb-4 text-pink-400">INNOVATE</h3>
-                    <p className="font-mono-pixel text-base text-gray-400 leading-relaxed">
-                      Push the boundaries of AI and create groundbreaking solutions
-                    </p>
-                  </div>
 
-                  {/* 24 Hours Feature */}
-                  <div className="glass modern-card rounded-2xl p-8 text-center">
-                    <div className="w-16 h-16 bg-gradient-to-br from-cyan-500/20 to-blue-500/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                      <Clock className="text-cyan-400" size={36} />
+                    {/* 3 Hours Feature */}
+                    <div className="glass modern-card rounded-2xl p-8 text-center">
+                      <div className="w-16 h-16 bg-gradient-to-br from-cyan-500/20 to-blue-500/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <Clock className="text-cyan-400" size={36} />
+                      </div>
+                      <h3 className="font-pixel text-base mb-4 text-cyan-400">3 HOURS</h3>
+                      <p className="font-mono-pixel text-base text-gray-400 leading-relaxed">
+                        In-depth theoretical session on drone technology, components, and flight principles.
+                      </p>
                     </div>
-                    <h3 className="font-pixel text-base mb-4 text-cyan-400">24 HOURS</h3>
-                    <p className="font-mono-pixel text-base text-gray-400 leading-relaxed">
-                      Intensive coding marathon with continuous mentorship and support
-                    </p>
-                  </div>
 
-                  {/* Compete Feature */}
-                  <div className="glass modern-card rounded-2xl p-8 text-center">
-                    <div className="w-16 h-16 bg-gradient-to-br from-yellow-500/20 to-orange-500/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                      <Trophy className="text-yellow-400" size={36} />
+                    {/* Learnings Feature */}
+                    <div className="glass modern-card rounded-2xl p-8 text-center">
+                      <div className="w-16 h-16 bg-gradient-to-br from-green-500/20 to-blue-500/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <GraduationCap className="text-green-400" size={36} />
+                      </div>
+                      <h3 className="font-pixel text-base mb-4 text-green-400">LEARNINGS</h3>
+                      <p className="font-mono-pixel text-base text-gray-400 leading-relaxed">
+                        Explore drone technology's science and engineering from a theoretical perspective.
+                      </p>
                     </div>
-                    <h3 className="font-pixel text-base mb-4 text-yellow-400">COMPETE</h3>
-                    <p className="font-mono-pixel text-base text-gray-400 leading-relaxed">
-                      Compete for exciting prizes and recognition in the tech community
-                    </p>
-                  </div>
+                  </motion.div>
                 </motion.div>
               </div>
             </section>
 
             {/* Register Now */}
             <section id="register-now" className="pt-20 bg-black/40 bg-gradient-to-b">
-              <div className="max-w-5xl block md:flex md:justify-center mx-auto px-6">
+              <div className="max-w-5xl flex flex-col items-center justify-center mx-auto px-6">
                 {/* Section Header */}
                 <motion.div
                   initial={{ opacity: 0, y: 30 }}
@@ -775,11 +716,10 @@ export default function Home() {
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.2 }}
-                  className="max-w-2xl ml-auto md:ml-20"
+                  className="max-w-md md:w-xl"
                 >
                   <div className="glass modern-card rounded-2xl p-8 text-center">
 
-                    {/* Guest Name */}
                     <motion.h3
                       initial={{ opacity: 0, y: 20 }}
                       whileInView={{ opacity: 1, y: 0 }}
@@ -789,7 +729,7 @@ export default function Home() {
                         textShadow: '0 0 20px rgba(147, 51, 234, 0.6)'
                       }}
                     >
-                      Got an idea?
+                      Unravel the Wires
                     </motion.h3>
 
                     {/* Guest Title */}
@@ -799,7 +739,7 @@ export default function Home() {
                       transition={{ duration: 0.6, delay: 0.5 }}
                       className="font-mono-pixel text-lg md:text-xl mb-6"
                     >
-                      Let's bring it to life.
+                      Master the Wings
                     </motion.p>
 
                     {/* LinkedIn Link */}
@@ -809,7 +749,7 @@ export default function Home() {
                       transition={{ duration: 0.6, delay: 0.6 }}
                     >
                       <motion.a
-                        href="https://www.linkedin.com/in/kohli12/?originalSubdomain=in"
+                        href="https://unstop.com/p/wings-and-wires-ieee-ras-manipal-1570145"
                         target="_blank"
                         rel="noopener noreferrer"
                         whileHover={{ scale: 1.05 }}
@@ -826,10 +766,10 @@ export default function Home() {
             </section>
 
             {/* Chief Guest Section */}
-            <section id="chief-guest" className="py-24 bg-black/40 bg-gradient-to-b">
+            {/*<section id="chief-guest" className="py-24 bg-black/40 bg-gradient-to-b">
               <div className="max-w-4xl mx-auto px-6">
                 {/* Section Header */}
-                <motion.div
+            {/*<motion.div
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8 }}
@@ -840,7 +780,7 @@ export default function Home() {
                 </motion.div>
 
                 {/* Chief Guest Card */}
-                <motion.div
+            {/*<motion.div
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.2 }}
@@ -848,7 +788,7 @@ export default function Home() {
                 >
                   <div className="glass modern-card rounded-2xl p-8 text-center">
                     {/* Guest Photo */}
-                    <motion.div
+            {/*<motion.div
                       initial={{ opacity: 0, scale: 0.9 }}
                       whileInView={{ opacity: 1, scale: 1 }}
                       transition={{ duration: 0.6, delay: 0.3 }}
@@ -869,7 +809,7 @@ export default function Home() {
                           sizes="128px"
                         />
                         {/* Glowing Ring Animation */}
-                        <motion.div
+            {/*<motion.div
                           className="absolute inset-0 rounded-full border-2 border-transparent"
                           style={{
                             background: 'linear-gradient(45deg, #8B5CF6, #06B6D4, #8B5CF6)',
@@ -892,7 +832,7 @@ export default function Home() {
                     </motion.div>
 
                     {/* Guest Name */}
-                    <motion.h3
+            {/*<motion.h3
                       initial={{ opacity: 0, y: 20 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.6, delay: 0.4 }}
@@ -905,7 +845,7 @@ export default function Home() {
                     </motion.h3>
 
                     {/* Guest Title */}
-                    <motion.p
+            {/*<motion.p
                       initial={{ opacity: 0, y: 20 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.6, delay: 0.5 }}
@@ -915,7 +855,7 @@ export default function Home() {
                     </motion.p>
 
                     {/* LinkedIn Link */}
-                    <motion.div
+            {/*<motion.div
                       initial={{ opacity: 0, y: 20 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.6, delay: 0.6 }}
@@ -945,8 +885,56 @@ export default function Home() {
               </div>
             </section>
 
-            {/* Schedule Section - 24-hour timeline */}
-            <section id="schedule" className="py-24 bg-black/40 bg-gradient-to-b">
+            */}
+
+            <section id="eligibility" className="py-24 bg-black/40 bg-gradient-to-b pt-10">
+              <div className="max-w-4xl mx-auto px-6 pt-30">
+                {/* Section Header */}
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8 }}
+                  className="text-center mb-16"
+                >
+                  <h2 className="font-pixel text-3xl md:text-5xl mb-6 neon-glow">ELIGIBILITY</h2>
+                  <div className="w-16 h-0.5 bg-gradient-to-r from-cyan-500 to-purple-500 mx-auto"></div>
+                </motion.div>
+
+                {/* Eligibility Items */}
+                <div className="space-y-8">
+                  {[
+                    { id: 1, desc: "Open to all undergraduate and postgraduate students from Manipal University Jaipur." },
+                    { id: 2, desc: "No prior technical experience in drone building or electronics required." },
+                    { id: 3, desc: "Participants from any specialization (Engineering, Science, or related fields) are welcome." },
+                    { id: 4, desc: "Individual participation only." },
+   
+                  ].map((item, index) => (
+                    // Individual Eligibility Item or Header
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0, x: -30 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.6, delay: index * 0.1 }}
+                      className={"flex items-center space-x-6"}
+                    >
+                          {/* Eligibility Dot - Styled with CSS class from globals.css */}
+                          <div className="timeline-dot w-4 h-4 rounded-full flex-shrink-0"></div>
+                          {/* Eligibility Content Card */}
+                          <div className="glass modern-card rounded-xl p-6 py-7 flex-1">
+                            <div className="flex flex-col md:flex-row md:items-center md:justify-between">
+                              <div>
+                                <p className="font-mono-pixel text-base text-gray-400">{item.desc}</p>
+                              </div>
+                            </div>
+                          </div>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+            </section>
+
+            {/* Format Section - 3-hour timeline */}
+            <section id="format" className="py-24 bg-black/40 bg-gradient-to-b">
               <div className="max-w-4xl mx-auto px-6">
                 {/* Section Header */}
                 <motion.div
@@ -955,23 +943,21 @@ export default function Home() {
                   transition={{ duration: 0.8 }}
                   className="text-center mb-16"
                 >
-                  <h2 className="font-pixel text-3xl md:text-5xl mb-6 neon-glow">SCHEDULE</h2>
+                  <h2 className="font-pixel text-3xl md:text-5xl mb-6 neon-glow">Workshop Format</h2>
                   <div className="w-16 h-0.5 bg-gradient-to-r from-cyan-500 to-purple-500 mx-auto"></div>
                 </motion.div>
 
                 {/* Timeline Items */}
                 <div className="space-y-8">
                   {[
-                    { time: "Day 1 - June 27, 2025", event: "", desc: "", isHeader: true },
-                    { time: "10:00 AM", event: "Opening Ceremony", desc: "Welcome to Pixel Palettes hackathon" },
-                    { time: "11:00 AM", event: "Let Begin", desc: "Start your hackathon journey" },
-                    { time: "1:00 PM", event: "Project Theme Declaration", desc: "Teams announce their chosen themes" },
-                    { time: "2:00 PM - 3:30 PM", event: "Help from Mentor", desc: "Mentorship and guidance session" },
-                    { time: "4:00 PM - 5:00 PM", event: "PPT Submission Deadline", desc: "Submit your presentation slides" },
-                    { time: "10:00 PM", event: "Shortlisted Team Reveal", desc: "Announcement of teams moving to next round" },
-                    { time: "Day 2 - June 28, 2025", event: "", desc: "", isHeader: true },
-                    { time: "11:00 AM - 12:00 PM", event: "Final Project Submission", desc: "Complete project submission window" },
-                    { time: "2:30 PM - 5:00 PM", event: "Final Presentation Round", desc: "Teams present their final projects" },
+                    { time: "October 10, 2025", event: "", desc: "", isHeader: true },
+                    { time: "12:00 PM", event: "Start Time", desc: "Introduction to Drone Technology" },
+                    { time: "12:30 PM", event: "End Time", desc: "Explaining Major Components of a Drone" },
+                    { time: "1:00 PM", event: "End Time", desc: "Theory of Flight and Control" },
+                    { time: "1:30 PM", event: "End Time", desc: "Communication Systems and Sensors" },
+                    { time: "2:00 PM", event: "End Time", desc: "Applications of Drones in Various Fields" },
+                    { time: "2:30 PM", event: "End Time", desc: "Q&A and Discussion Session" },
+
                   ].map((item, index) => (
                     // Individual Timeline Item or Header
                     <motion.div
@@ -1022,7 +1008,7 @@ export default function Home() {
                   className="text-center mb-12"
                 >
                   <h2 className="font-pixel text-2xl md:text-3xl mb-6 text-gray-300" style={{ textShadow: '0 0 10px rgba(147, 51, 234, 0.6)' }}>
-                    SPONSORED BY
+                    RESOURCES
                   </h2>
                   <div className="w-12 h-0.5 bg-gradient-to-r from-purple-500 to-cyan-500 mx-auto"></div>
                 </motion.div>
@@ -1035,7 +1021,7 @@ export default function Home() {
                   className="flex flex-col md:flex-row items-center justify-center gap-12 md:gap-20"
                 >
                   {/* KDK Software Logo - Clickable */}
-                  <motion.a
+                  {/*<motion.a
                     href="https://www.kdksoftware.com"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -1054,10 +1040,10 @@ export default function Home() {
                       }}
                       sizes="(max-width: 768px) 160px, 180px"
                     />
-                  </motion.a>
+                  </motion.a>*/}
 
                   {/* Coding Blocks Logo - Clickable */}
-                  <motion.a
+                  {/*<motion.a
                     href="https://www.codingblocks.com/"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -1076,7 +1062,7 @@ export default function Home() {
                       }}
                       sizes="(max-width: 768px) 160px, 180px"
                     />
-                  </motion.a>
+                  </motion.a>*/}
                 </motion.div>
 
                 {/* View All Sponsors Link */}
@@ -1087,7 +1073,7 @@ export default function Home() {
                   className="text-center mt-10"
                 >
                   <Link
-                    href="/technovision/sponsors"
+                    href="/wingsandwires/sponsors"
                     className="font-mono-pixel text-sm text-gray-400 hover:text-purple-400 transition-colors inline-flex items-center space-x-2 group"
                   >
                     <span>View All Sponsors</span>
