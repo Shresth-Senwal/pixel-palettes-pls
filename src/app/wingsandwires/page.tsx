@@ -946,14 +946,13 @@ export default function Home() {
                 {/* Timeline Items */}
                 <div className="space-y-8">
                   {[
-                    { time: "October 10, 2025", event: "", desc: "", isHeader: true },
-                    { time: "12:00 PM", event: "Start Time", desc: "Introduction to Drone Technology" },
-                    { time: "12:30 PM", event: "End Time", desc: "Explaining Major Components of a Drone" },
-                    { time: "1:00 PM", event: "End Time", desc: "Theory of Flight and Control" },
-                    { time: "1:30 PM", event: "End Time", desc: "Communication Systems and Sensors" },
-                    { time: "2:00 PM", event: "End Time", desc: "Applications of Drones in Various Fields" },
-                    { time: "2:30 PM", event: "End Time", desc: "Q&A and Discussion Session" },
-
+                    { time: "October 10, 2025", title: "", desc: "", isHeader: true },
+                    { time: "12:00 PM", title: "Kick-off & Introduction", desc: "Introduction to Drone Technology" },
+                    { time: "12:30 PM", title: "Anatomy of a Drone", desc: "Explaining Major Components of a Drone" },
+                    { time: "1:00 PM", title: "Flight Dynamics 101", desc: "Theory of Flight and Control" },
+                    { time: "1:30 PM", title: "Sensors & Signals", desc: "Communication Systems and Sensors" },
+                    { time: "2:00 PM", title: "Drones in the Wild", desc: "Applications of Drones in Various Fields" },
+                    { time: "2:30 PM", title: "Open Forum & Closing", desc: "Q&A and Discussion Session" },
                   ].map((item, index) => (
                     // Individual Timeline Item or Header
                     <motion.div
@@ -980,7 +979,7 @@ export default function Home() {
                             <div className="flex flex-col md:flex-row md:items-center md:justify-between">
                               <div>
                                 <div className="font-pixel text-base text-pink-400 mb-2">{item.time}</div>
-                                <h4 className="font-pixel text-sm mb-2">{item.event}</h4>
+                                <h4 className="font-pixel text-sm mb-2">{item.title}</h4>
                                 <p className="font-mono-pixel text-base text-gray-400">{item.desc}</p>
                               </div>
                             </div>
