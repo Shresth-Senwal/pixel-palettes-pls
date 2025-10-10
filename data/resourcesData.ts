@@ -92,7 +92,7 @@ export const droneResources = [
         title: 'INAV (Firmware)',
         description: 'Beginner-friendly drone firmware. Simple configuration, great GPS support, and solid stability for multirotors and fixed wings.',
         logo: "/wingsandwires/INAV.png",
-        website: "https://inavflight.org/",
+        website: "https://github.com/iNavFlight/inav",
         linkedinUrl: ""
       },
       {
