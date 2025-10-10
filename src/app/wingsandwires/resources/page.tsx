@@ -7,7 +7,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 // 1. Correctly import the data from its file.
 import { droneResources } from 'data/resourcesData';
-import { CosmicBackgroundDesktop, CosmicBackgroundMobile } from '@/components/WingsAndWires/CosmicBackground';
+import { CosmicBackground } from '@/components/WingsAndWires/CosmicBackground';
 
 // --- Define the type for a single resource category object ---
 // Renamed for clarity, but structure is the same.
@@ -63,12 +63,7 @@ export default function ResourcesPage() {
   // It was previously inside the 'toggleDomain' function, which is why nothing was rendering.
   return (
     <div className="min-h-screen bg-black/60 text-white">
-      <div className='md:block hidden'>
-        <CosmicBackgroundDesktop />
-      </div>
-      <div className='md:hidden'>
-        <CosmicBackgroundMobile />
-      </div>
+        <CosmicBackground />
 
       {/* Navigation Bar */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-md border-b border-gray-800/50">

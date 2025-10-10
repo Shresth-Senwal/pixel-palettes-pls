@@ -5,7 +5,8 @@ import { useState, useEffect } from 'react';
 import { Calendar, MapPin, GraduationCap, Clock, ArrowRight, Zap } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { CosmicBackgroundDesktop, CosmicBackgroundMobile } from '@/components/WingsAndWires/CosmicBackground';
+//import { CosmicBackgroundDesktop, CosmicBackgroundMobile } from '@/components/WingsAndWires/CosmicBackground';
+import { CosmicBackground } from '@/components/WingsAndWires/CosmicBackground';
 
 export default function Home() {
 
@@ -164,12 +165,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen text-white">
-      <div className='md:block hidden'>
-        <CosmicBackgroundDesktop />
-      </div>
-      <div className='md:hidden'>
-        <CosmicBackgroundMobile />
-      </div>
+        <CosmicBackground />
 
       {/* Loading Screen - Retro Event Name Loading Animation */}
       <AnimatePresence>
