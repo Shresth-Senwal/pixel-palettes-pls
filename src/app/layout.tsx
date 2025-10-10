@@ -328,7 +328,7 @@ export default function RootLayout({
         - Includes anti-aliasing for better text rendering
       */}
       <body
-        className={`${inter.className} antialiased`}
+        className={`${inter.className} antialiased bg-black`}
         suppressHydrationWarning={true}
       >
         {/* 

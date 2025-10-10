@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 import { ArrowLeft, Linkedin } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
-
+import { judges } from 'data/judgeData';
 /**
  * Judges Page Component for Pixel Palettes Hackathon
  * 
@@ -29,64 +29,23 @@ import Link from 'next/link';
  * 
  * @returns {JSX.Element} Complete judges page with navigation and footer
  */
+
+type JudgesTypes = {
+  id: number,
+  name: string,
+  affiliation: string,
+  role: string,
+  image: string, // Placeholder - to be replaced with actual photo
+  linkedinUrl: string, // Placeholder - to be updated
+  expertise: string[],
+};
+
 export default function Judges() {
   /**
    * Mobile menu visibility state
    * Controls whether the mobile navigation menu is open or closed
    */
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  
-  /**
-   * Static data array containing judge information
-   * Each judge object includes:
-   * - id: Unique identifier for React key prop
-   * - name: Full name of the judge
-   * - affiliation: Current organization or company
-   * - role: Primary expertise or position
-   * - image: Profile photo path (placeholder images)
-   * - linkedinUrl: LinkedIn profile URL for networking
-   * - expertise: Array of skill tags/specializations
-   * 
-   * Note: All data is placeholder and should be updated with real judge information
-   */
-  const judges = [
-    {
-      id: 1,
-      name: "Dr. Sarah Chen",
-      affiliation: "Senior AI Researcher, Google DeepMind",
-      role: "Machine Learning Expert",
-      image: "/judge1.jpg", // Placeholder - to be replaced with actual photo
-      linkedinUrl: "https://linkedin.com/in/sarah-chen-ai", // Placeholder - to be updated
-      expertise: ["Artificial Intelligence", "Deep Learning", "Computer Vision"]
-    },
-    {
-      id: 2,
-      name: "Alex Rodriguez",
-      affiliation: "CTO, TechStartup Inc.",
-      role: "Full-Stack Development",
-      image: "/judge2.jpg", // Placeholder - to be replaced with actual photo
-      linkedinUrl: "https://linkedin.com/in/alex-rodriguez-cto", // Placeholder - to be updated
-      expertise: ["Web Development", "System Architecture", "DevOps"]
-    },
-    {
-      id: 3,
-      name: "Maya Patel",
-      affiliation: "Lead Designer, Adobe",
-      role: "UI/UX Design Expert",
-      image: "/judge3.jpg", // Placeholder - to be replaced with actual photo
-      linkedinUrl: "https://linkedin.com/in/maya-patel-design", // Placeholder - to be updated
-      expertise: ["User Experience", "Product Design", "Design Systems"]
-    },
-    {
-      id: 4,
-      name: "Dr. James Wilson",
-      affiliation: "Professor of Computer Science, MIT",
-      role: "Academic Advisor",
-      image: "/judge4.jpg", // Placeholder - to be replaced with actual photo
-      linkedinUrl: "https://linkedin.com/in/james-wilson-mit", // Placeholder - to be updated
-      expertise: ["Algorithms", "Data Structures", "Research"]
-    }
-  ];
 
   // Auto-scroll to center the "To Be Announced" section
   useEffect(() => {
@@ -97,7 +56,7 @@ export default function Judges() {
         const elementHeight = announcementSection.getBoundingClientRect().height;
         const windowHeight = window.innerHeight;
         const scrollTo = elementTop - (windowHeight - elementHeight) / 2;
-        
+
         window.scrollTo({
           top: Math.max(0, scrollTo),
           behavior: 'smooth'
@@ -115,7 +74,7 @@ export default function Judges() {
       {/* Background Effects - Layered gradients and patterns for cyberpunk aesthetic */}
       <div className="fixed inset-0 bg-gradient-to-br from-purple-900/20 via-black to-cyan-900/20"></div>
       <div className="fixed inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(147,51,234,0.1),transparent_50%)]"></div>
-      
+
       {/* Animated Grid Background - CSS-generated retro grid pattern */}
       <div className="fixed inset-0 opacity-10">
         <div className="absolute inset-0" style={{
@@ -155,19 +114,19 @@ export default function Judges() {
               <Link href="/pixelpalettes/judges" className="text-xl text-purple-400 font-mono-pixel">Judges</Link>
               <Link href="/pixelpalettes/sponsors" className="text-xl hover:text-purple-400 transition-colors font-mono-pixel">Sponsors</Link>
             </div>
-            
+
             {/* Mobile Menu Button */}
             <div className="md:hidden">
-              <button 
+              <button
                 className="p-2 text-gray-300 hover:text-white transition-colors duration-300"
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 aria-label="Toggle mobile menu"
               >
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path 
-                    strokeLinecap="round" 
-                    strokeLinejoin="round" 
-                    strokeWidth={2} 
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
                     d={isMobileMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"}
                   />
                 </svg>
@@ -175,7 +134,7 @@ export default function Judges() {
             </div>
           </div>
         </div>
-        
+
         {/* Mobile Menu Overlay */}
         {isMobileMenuOpen && (
           <motion.div
@@ -191,8 +150,8 @@ export default function Judges() {
                   whileHover={{ x: 5 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  <Link 
-                    href="/pixelpalettes#about" 
+                  <Link
+                    href="/pixelpalettes#about"
                     className="block px-4 py-3 text-lg font-mono-pixel text-gray-300 hover:text-purple-400 transition-colors duration-300 border-b border-gray-800/30"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
@@ -203,8 +162,8 @@ export default function Judges() {
                   whileHover={{ x: 5 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  <Link 
-                    href="/pixelpalettes/judges" 
+                  <Link
+                    href="/pixelpalettes/judges"
                     className="block px-4 py-3 text-lg font-mono-pixel text-purple-400 border-b border-gray-800/30"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
@@ -215,8 +174,8 @@ export default function Judges() {
                   whileHover={{ x: 5 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  <Link 
-                    href="/pixelpalettes/sponsors" 
+                  <Link
+                    href="/pixelpalettes/sponsors"
                     className="block px-4 py-3 text-lg font-mono-pixel text-gray-300 hover:text-purple-400 transition-colors duration-300"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
@@ -252,43 +211,43 @@ export default function Judges() {
           <div className="relative">
             {/* Original Content - Blurred but preserved */}
             <div className="blur-lg select-none pointer-events-none">
-          {/* Page Header - Title and description with fade-in animation */}
-          <motion.div 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1, ease: "easeOut" }}
-            className="text-center mb-16 relative z-20"
-            style={{ isolation: 'isolate' }} // Creates new stacking context
-          >
-            <h1 className="font-pixel text-4xl md:text-6xl mb-6 neon-glow relative z-10">OUR JUDGES</h1>
-            {/* Decorative gradient underline */}
-            <div className="w-20 h-0.5 bg-gradient-to-r from-purple-500 to-cyan-500 mx-auto mb-8 relative z-10"></div>
-            <p className="font-mono-pixel text-xl text-gray-300 max-w-3xl mx-auto relative z-10">
-              Meet our distinguished panel of judges who will evaluate your innovative projects. 
-              These industry experts bring years of experience and expertise to guide and assess your work.
-            </p>
-          </motion.div>
-
-          {/* Judges Grid - Responsive layout with scroll-triggered animations */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 relative z-0">
-            {judges.map((judge, index) => (
-              // Individual Judge Card with staggered entrance animation
+              {/* Page Header - Title and description with fade-in animation */}
               <motion.div
-                key={judge.id}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }} // Trigger animation 50px before entering viewport
-                transition={{ duration: 0.6, delay: index * 0.15, ease: "easeOut" }} // Staggered by 150ms
-                className="glass modern-card rounded-2xl p-6 md:p-8 text-center relative"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 1, ease: "easeOut" }}
+                className="text-center mb-16 relative z-20"
+                style={{ isolation: 'isolate' }} // Creates new stacking context
               >
-                {/* Judge Profile Photo Section */}
-                <div className="mb-6">
+                <h1 className="font-pixel text-4xl md:text-6xl mb-6 neon-glow relative z-10">OUR JUDGES</h1>
+                {/* Decorative gradient underline */}
+                <div className="w-20 h-0.5 bg-gradient-to-r from-purple-500 to-cyan-500 mx-auto mb-8 relative z-10"></div>
+                <p className="font-mono-pixel text-xl text-gray-300 max-w-3xl mx-auto relative z-10">
+                  Meet our distinguished panel of judges who will evaluate your innovative projects.
+                  These industry experts bring years of experience and expertise to guide and assess your work.
+                </p>
+              </motion.div>
+
+              {/* Judges Grid - Responsive layout with scroll-triggered animations */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 relative z-0">
+                {(judges as JudgesTypes[]).map((judge, index) => (
+                  // Individual Judge Card with staggered entrance animation
                   <motion.div
-                    whileHover={{ scale: 1.05 }} // Subtle hover scale effect
-                    className="relative mx-auto w-32 h-32 md:w-40 md:h-40"
+                    key={judge.id}
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-50px" }} // Trigger animation 50px before entering viewport
+                    transition={{ duration: 0.6, delay: index * 0.15, ease: "easeOut" }} // Staggered by 150ms
+                    className="glass modern-card rounded-2xl p-6 md:p-8 text-center relative"
                   >
-                    {/* Photo container with gradient border and glow effects */}
-                    <div className="w-full h-full bg-gradient-to-br from-purple-500/20 to-cyan-500/20 border-2 border-purple-400/30 rounded-full flex items-center justify-center overflow-hidden">
+                    {/* Judge Profile Photo Section */}
+                    <div className="mb-6">
+                      <motion.div
+                        whileHover={{ scale: 1.05 }} // Subtle hover scale effect
+                        className="relative mx-auto w-32 h-32 md:w-40 md:h-40"
+                      >
+                        {/* Photo container with gradient border and glow effects */}
+                        <div className="w-full h-full bg-gradient-to-br from-purple-500/20 to-cyan-500/20 border-2 border-purple-400/30 rounded-full flex items-center justify-center overflow-hidden">
                           {/* Enhanced Silhouette Placeholder */}
                           <div className="w-full h-full relative bg-gradient-to-br from-gray-800 via-gray-900 to-black flex items-center justify-center">
                             <svg
@@ -323,7 +282,7 @@ export default function Judges() {
                                   <circle cx="70" cy="80" r="2" fill="#06b6d4" opacity="0.7" />
                                 </g>
                               )}
-                              
+
                               {index === 1 && (
                                 // Alex Rodriguez - Male CTO silhouette
                                 <g fill="url(#judgeGradient2)">
@@ -346,7 +305,7 @@ export default function Judges() {
                                   <circle cx="71" cy="71" r="1" fill="#ffffff" opacity="0.9" />
                                 </g>
                               )}
-                              
+
                               {index === 2 && (
                                 // Maya Patel - Female designer silhouette
                                 <g fill="url(#judgeGradient3)">
@@ -368,7 +327,7 @@ export default function Judges() {
                                   <path d="M52 82 Q60 78 68 82" stroke="#06b6d4" strokeWidth="1" fill="none" opacity="0.5" />
                                 </g>
                               )}
-                              
+
                               {index === 3 && (
                                 // Dr. James Wilson - Male professor silhouette
                                 <g fill="url(#judgeGradient4)">
@@ -391,7 +350,7 @@ export default function Judges() {
                                   <line x1="46" y1="81" x2="52" y2="81" stroke="#ffffff" strokeWidth="0.5" opacity="0.8" />
                                 </g>
                               )}
-                              
+
                               {/* Common tech overlay elements for all silhouettes */}
                               <g opacity="0.3">
                                 {/* Circuit pattern overlay */}
@@ -403,12 +362,12 @@ export default function Judges() {
                                 <circle cx="95" cy="110" r="1" fill="#06b6d4" />
                               </g>
                             </svg>
-                            
+
                             {/* Subtle tech overlay pattern */}
                             <div className="absolute inset-0 opacity-20 pointer-events-none">
-                              <div 
+                              <div
                                 className="w-full h-full"
-                        style={{
+                                style={{
                                   backgroundImage: `
                                     radial-gradient(circle at 30% 30%, rgba(147, 51, 234, 0.3) 1px, transparent 1px),
                                     radial-gradient(circle at 70% 70%, rgba(6, 182, 212, 0.3) 1px, transparent 1px)
@@ -418,92 +377,92 @@ export default function Judges() {
                               />
                             </div>
                           </div>
+                        </div>
+                      </motion.div>
                     </div>
+
+                    {/* Judge Information Section */}
+                    <div className="mb-6">
+                      {/* Judge Name - Primary identification */}
+                      <h2 className="font-pixel text-xl md:text-2xl mb-2 text-purple-400">
+                        {judge.name}
+                      </h2>
+
+                      {/* Professional Affiliation */}
+                      <p className="font-mono-pixel text-base text-gray-300 mb-2">
+                        {judge.affiliation}
+                      </p>
+
+                      {/* Primary Role/Expertise */}
+                      <p className="font-mono-pixel text-sm text-cyan-400 mb-4">
+                        {judge.role}
+                      </p>
+
+                      {/* Expertise Tags - Color-coded skill indicators */}
+                      <div className="flex flex-wrap justify-center gap-2 mb-6">
+                        {judge.expertise.map((skill, skillIndex) => (
+                          <span
+                            key={skillIndex}
+                            className="px-3 py-1 bg-purple-500/20 text-purple-400 border border-purple-400/50 rounded-full text-xs font-mono-pixel"
+                          >
+                            {skill}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* LinkedIn Contact Button - Professional networking link */}
+                    <motion.a
+                      href={judge.linkedinUrl}
+                      target="_blank" // Open in new tab
+                      rel="noopener noreferrer" // Security best practice
+                      className="inline-flex items-center space-x-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-mono-pixel text-sm transition-colors"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      <Linkedin size={18} />
+                      <span>LinkedIn</span>
+                    </motion.a>
                   </motion.div>
-                </div>
+                ))}
+              </div>
 
-                {/* Judge Information Section */}
-                <div className="mb-6">
-                  {/* Judge Name - Primary identification */}
-                  <h2 className="font-pixel text-xl md:text-2xl mb-2 text-purple-400">
-                    {judge.name}
-                  </h2>
-                  
-                  {/* Professional Affiliation */}
-                  <p className="font-mono-pixel text-base text-gray-300 mb-2">
-                    {judge.affiliation}
-                  </p>
-
-                  {/* Primary Role/Expertise */}
-                  <p className="font-mono-pixel text-sm text-cyan-400 mb-4">
-                    {judge.role}
-                  </p>
-
-                  {/* Expertise Tags - Color-coded skill indicators */}
-                  <div className="flex flex-wrap justify-center gap-2 mb-6">
-                    {judge.expertise.map((skill, skillIndex) => (
-                      <span
-                        key={skillIndex}
-                        className="px-3 py-1 bg-purple-500/20 text-purple-400 border border-purple-400/50 rounded-full text-xs font-mono-pixel"
-                      >
-                        {skill}
-                      </span>
-                    ))}
+              {/* Judging Criteria Section - Explains evaluation process */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.8 }}
+                className="text-center mt-16 p-8 glass modern-card rounded-2xl"
+              >
+                <h3 className="font-pixel text-2xl md:text-3xl mb-4 text-cyan-400">
+                  JUDGING CRITERIA
+                </h3>
+                {/* Three-column grid of evaluation criteria */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+                  {/* Innovation Criterion */}
+                  <div className="text-center">
+                    <h4 className="font-pixel text-lg text-purple-400 mb-2">Innovation</h4>
+                    <p className="font-mono-pixel text-sm text-gray-300">
+                      Creativity and originality of the solution
+                    </p>
+                  </div>
+                  {/* Technical Excellence Criterion */}
+                  <div className="text-center">
+                    <h4 className="font-pixel text-lg text-purple-400 mb-2">Technical Excellence</h4>
+                    <p className="font-mono-pixel text-sm text-gray-300">
+                      Quality of code and implementation
+                    </p>
+                  </div>
+                  {/* Impact Criterion */}
+                  <div className="text-center">
+                    <h4 className="font-pixel text-lg text-purple-400 mb-2">Impact</h4>
+                    <p className="font-mono-pixel text-sm text-gray-300">
+                      Potential real-world application and value
+                    </p>
                   </div>
                 </div>
-
-                {/* LinkedIn Contact Button - Professional networking link */}
-                <motion.a
-                  href={judge.linkedinUrl}
-                  target="_blank" // Open in new tab
-                  rel="noopener noreferrer" // Security best practice
-                  className="inline-flex items-center space-x-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-mono-pixel text-sm transition-colors"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <Linkedin size={18} />
-                  <span>LinkedIn</span>
-                </motion.a>
               </motion.div>
-            ))}
-          </div>
-
-          {/* Judging Criteria Section - Explains evaluation process */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.8 }}
-            className="text-center mt-16 p-8 glass modern-card rounded-2xl"
-          >
-            <h3 className="font-pixel text-2xl md:text-3xl mb-4 text-cyan-400">
-              JUDGING CRITERIA
-            </h3>
-            {/* Three-column grid of evaluation criteria */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
-              {/* Innovation Criterion */}
-              <div className="text-center">
-                <h4 className="font-pixel text-lg text-purple-400 mb-2">Innovation</h4>
-                <p className="font-mono-pixel text-sm text-gray-300">
-                  Creativity and originality of the solution
-                </p>
-              </div>
-              {/* Technical Excellence Criterion */}
-              <div className="text-center">
-                <h4 className="font-pixel text-lg text-purple-400 mb-2">Technical Excellence</h4>
-                <p className="font-mono-pixel text-sm text-gray-300">
-                  Quality of code and implementation
-                </p>
-              </div>
-              {/* Impact Criterion */}
-              <div className="text-center">
-                <h4 className="font-pixel text-lg text-purple-400 mb-2">Impact</h4>
-                <p className="font-mono-pixel text-sm text-gray-300">
-                  Potential real-world application and value
-                </p>
-              </div>
-            </div>
-          </motion.div>
             </div>
 
             {/* "To Be Announced" Overlay */}
@@ -532,15 +491,15 @@ export default function Judges() {
                     TO BE ANNOUNCED
                   </h2>
                 </motion.div>
-                
+
                 <div className="w-24 h-1 bg-gradient-to-r from-purple-500 to-cyan-500 mx-auto mb-6"></div>
-                
+
                 <p className="font-mono-pixel text-lg md:text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
-                  Our distinguished panel of judges will be revealed soon. 
-                  Stay tuned for announcements about the industry experts 
+                  Our distinguished panel of judges will be revealed soon.
+                  Stay tuned for announcements about the industry experts
                   who will evaluate your innovative projects.
                 </p>
-                
+
                 <motion.div
                   className="mt-8 flex justify-center space-x-2"
                   animate={{ opacity: [0.5, 1, 0.5] }}

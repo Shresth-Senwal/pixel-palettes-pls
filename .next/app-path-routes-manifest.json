@@ -1,9 +1,11 @@
 {
   "/_not-found/page": "/_not-found",
   "/favicon.ico/route": "/favicon.ico",
-  "/page": "/",
-  "/pixelpalettes/problems/page": "/pixelpalettes/problems",
   "/pixelpalettes/judges/page": "/pixelpalettes/judges",
+  "/wingsandwires/page": "/wingsandwires",
   "/pixelpalettes/page": "/pixelpalettes",
-  "/pixelpalettes/sponsors/page": "/pixelpalettes/sponsors"
+  "/pixelpalettes/sponsors/page": "/pixelpalettes/sponsors",
+  "/pixelpalettes/problems/page": "/pixelpalettes/problems",
+  "/page": "/",
+  "/wingsandwires/resources/page": "/wingsandwires/resources"
 }
